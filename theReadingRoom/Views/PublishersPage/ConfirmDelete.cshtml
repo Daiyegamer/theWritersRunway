@@ -1,0 +1,13 @@
+﻿@model AdilBooks.Models.PublisherDto
+
+@{
+    ViewData["Title"] = "Confirm Delete";
+}
+
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete <strong>@Model.PublisherName</strong>?</p>
+
+<form method="post" action="/Publishers/Delete/@Model.PublisherId">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="/Publishers/List" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,0 +1,54 @@
+﻿@{
+    var publisher = (AdilBooks.Models.PublisherDto)ViewData["Publisher"];
+    var books = (List<AdilBooks.Models.BookDto>)ViewData["Books"];
+    ViewData["Title"] = "Publisher Details";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-primary">🏢 @publisher.PublisherName</h1>
+    <hr class="mb-4">
+
+    <!-- Actions (Only for Authenticated Users) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="text-end mb-3">
+            <a href="/Publishers/Edit/@publisher.PublisherId" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="/Publishers/ConfirmDelete/@publisher.PublisherId" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
+    }
+
+    <!-- Books Published Section -->
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            <h4 class="card-title text-secondary">📚 Books Published</h4>
+            <hr>
+            @if (books != null && books.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var book in books)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <i class="fas fa-book"></i> @book.Title
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No books found for this publisher.</p>
+            }
+        </div>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="text-center mt-4">
+        <a href="/Publishers/List" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>

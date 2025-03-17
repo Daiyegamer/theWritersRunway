@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AdilBooks.Models.AuthorListDto>
+
+@{
+    ViewData["Title"] = "Authors List";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-primary">📖 Authors List</h1>
+    <hr class="mb-4">
+
+    <!-- Create New Author Button (Only for Authenticated Users) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="text-end mb-3">
+            <a asp-controller="AuthorsPage" asp-action="Add" class="btn btn-success">
+                <i class="fas fa-plus-circle"></i> Add New Author
+            </a>
+        </div>
+    }
+
+    <!-- Authors List Grid -->
+    <div class="row">
+        @foreach (var author in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">@author.Name</h5>
+                        <hr>
+
+                        <!-- View Button (Always Visible) -->
+                        <a asp-controller="AuthorsPage" asp-action="Find" asp-route-id="@author.AuthorId" class="btn btn-outline-primary">
+                            <i class="fas fa-eye"></i> View Details
+                        </a>
+
+                        <!-- Edit & Delete (Only for Authenticated Users) -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="AuthorsPage" asp-action="Edit" asp-route-id="@author.AuthorId" class="btn btn-warning">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <a asp-controller="Authors" asp-action="ConfirmDelete" asp-route-id="@author.AuthorId" class="btn btn-danger">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+    </div>
+</div>

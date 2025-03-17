@@ -1,0 +1,47 @@
+﻿@model AdilBooks.Models.UpdateBookDto
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<h1>Edit Book</h1>
+
+<form asp-action="Update" asp-controller="BooksPage" method="post">
+    <!-- ✅ Ensure the BookId is included as a hidden field -->
+    <input type="hidden" asp-for="BookId" />
+    <!-- Title Field -->
+    <div class="form-group">
+        <label asp-for="Title" class="control-label font-weight-bold"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Year Field -->
+    <div class="form-group">
+        <label asp-for="Year" class="control-label font-weight-bold"></label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <!-- Synopsis Field -->
+    <div class="form-group">
+        <label asp-for="Synopsis" class="control-label font-weight-bold"></label>
+        <textarea asp-for="Synopsis" class="form-control"></textarea>
+        <span asp-validation-for="Synopsis" class="text-danger"></span>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+        <input type="submit" value="Save Changes" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

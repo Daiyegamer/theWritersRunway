@@ -1,0 +1,43 @@
+﻿@model AdilBooks.Models.AuthorDto
+
+@{
+    ViewData["Title"] = "Confirm Delete Author";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-danger">🗑️ Confirm Delete</h1>
+    <hr class="mb-4">
+
+    <p class="text-center lead">
+        Are you sure you want to delete the author <strong>@Model.Name</strong>?
+    </p>
+
+    <!-- Author Details -->
+    <div class="card shadow-lg border-0 mt-4">
+        <div class="card-body">
+            <h4 class="text-primary">📖 Author Details</h4>
+            <hr>
+
+            <div class="mb-3">
+                <label class="font-weight-bold">Name:</label>
+                <div>@Model.Name</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="font-weight-bold">Biography:</label>
+                <div>@Model.Bio</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Form -->
+    <form method="post" asp-controller="AuthorsPage" asp-action="Delete" asp-route-id="@Model.AuthorId" class="mt-4 text-center">
+        <button type="submit" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Delete
+        </button>
+        <a asp-controller="AuthorsPage" asp-action="List" class="btn btn-secondary">
+            <i class="fas fa-times"></i> Cancel
+        </a>
+    </form>
+</div>

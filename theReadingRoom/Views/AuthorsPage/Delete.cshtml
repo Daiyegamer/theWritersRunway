@@ -1,0 +1,21 @@
+﻿@model AdilBooks.Models.AuthorDto
+
+@{
+    ViewData["Title"] = "Delete Author";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-danger">🗑️ Author Deleted</h1>
+    <hr class="mb-4">
+
+    <p class="text-center lead">
+        The author <strong>@Model.Name</strong> has been successfully deleted.
+    </p>
+
+    <div class="text-center mt-4">
+        <a asp-controller="AuthorsPage" asp-action="List" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>

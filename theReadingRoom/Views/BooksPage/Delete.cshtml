@@ -1,0 +1,36 @@
+﻿@model AdilBooks.Models.BookDto
+
+@{
+    ViewData["Title"] = "Delete Book";
+}
+
+<h1>Delete Book</h1>
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <div>
+        <label class="font-weight-bold">Title</label>
+        <div>@Model.Title</div>
+    </div>
+    <div>
+        <label class="font-weight-bold">Year</label>
+        <div>@Model.Year</div>
+    </div>
+    <div>
+        <label class="font-weight-bold">Synopsis</label>
+        <div>@Model.Synopsis</div>
+    </div>
+    <div>
+        <label class="font-weight-bold">Publisher</label>
+        <div>@Model.PublisherName</div>
+    </div>
+</div>
+
+<form method="post" action="/Books/Delete/@Model.BookId">
+    <input type="submit" value="Delete" class="btn btn-danger" />
+</form>
+
+<div>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</div>

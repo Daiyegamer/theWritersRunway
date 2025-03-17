@@ -1,0 +1,64 @@
+﻿@model AdilBooks.Models.AuthorDto
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-primary">✍️ Author Details</h1>
+    <hr class="mb-4">
+
+    <!-- Author Card -->
+    <div class="card shadow-lg border-0">
+        <div class="card-body">
+            <h3 class="card-title text-primary">@Model.Name</h3>
+            <hr>
+
+            <p class="card-text">
+                <strong>📖 Biography:</strong><br />
+                @Model.Bio
+            </p>
+
+            <!-- Books List -->
+            <div>
+                <strong>📚 Books by This Author:</strong>
+                <ul class="list-group mt-2">
+                    @if (!string.IsNullOrEmpty(Model.Titles))
+                    {
+                        foreach (var book in Model.Titles.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries))
+                        {
+                            <li class="list-group-item">
+                                <i class="fas fa-book"></i> @book
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item text-muted">No books found.</li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Actions (Only for Authenticated Users) -->
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="mt-4">
+                    <a asp-controller="AuthorsPage" asp-action="Edit" asp-route-id="@Model.AuthorId" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Edit
+                    </a>
+                    <a asp-controller="AuthorsPage" asp-action="ConfirmDelete" asp-route-id="@Model.AuthorId" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </a>
+                </div>
+            }
+
+            <!-- Back to List Button -->
+            <div class="mt-4">
+                <a asp-controller="AuthorsPage" asp-action="List" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

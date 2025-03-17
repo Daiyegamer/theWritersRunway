@@ -1,0 +1,91 @@
+﻿@model AdilBooks.Models.ViewModels.BookWithAuthorsViewModel
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-4">
+    <!-- Page Title -->
+    <h1 class="text-center text-primary">📖 Book Details</h1>
+    <hr class="mb-4">
+
+    <!-- Actions (Only for Authenticated Users) -->
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="text-end mb-3">
+            <a href="/Books/Edit/@Model.Book.BookId" class="btn btn-warning">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a href="/Books/ConfirmDelete/@Model.Book.BookId" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i> Delete
+            </a>
+        </div>
+    }
+
+    <!-- Book Information -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h3 class="card-title text-primary">@Model.Book.Title</h3>
+                    <hr>
+                    <p><strong>📅 Year:</strong> @Model.Book.Year</p>
+                    <p><strong>📝 Synopsis:</strong></p>
+                    <p>@Model.Book.Synopsis</p>
+                    <p><strong>🏢 Publisher:</strong> @Model.Book.PublisherName</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Authors Section -->
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <h4 class="card-title text-secondary">✍️ Authors</h4>
+                    <ul class="list-group mt-3">
+                        @foreach (var author in Model.Book.LinkedAuthors)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <i class="fas fa-user"></i> @author.AuthorName
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <form method="POST" action="/Books/UnlinkAuthorFromBook" style="display:inline">
+                                        <input type="hidden" name="bookId" value="@Model.Book.BookId" />
+                                        <input type="hidden" name="authorId" value="@author.AuthorId" />
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Remove
+                                        </button>
+                                    </form>
+                                }
+                            </li>
+                        }
+                    </ul>
+
+                    <!-- Add Author Form (Only for Authenticated Users) -->
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form method="POST" action="/Books/LinkAuthorToBook" class="mt-3">
+                            <input type="hidden" name="bookId" value="@Model.Book.BookId" />
+                            <select name="authorId" class="form-control mb-2">
+                                @foreach (var author in Model.AvailableAuthors)
+                                {
+                                    <option value="@author.AuthorId">@author.Name</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-plus-circle"></i> Add Author
+                            </button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to List Button -->
+    <div class="text-center mt-4">
+        <a href="/Books/List" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to List
+        </a>
+    </div>
+</div>

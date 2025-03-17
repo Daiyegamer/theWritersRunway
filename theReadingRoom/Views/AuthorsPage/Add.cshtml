@@ -1,0 +1,43 @@
+﻿@model AdilBooks.Models.AuthorDto
+
+@{
+    ViewData["Title"] = "Add Author";
+}
+
+<h1>Add Author</h1>
+
+<!-- ✅ Ensure Form Submits Correctly -->
+<form asp-action="Add" asp-controller="AuthorsPage" method="post">
+    @Html.AntiForgeryToken() <!-- ✅ CSRF Protection -->
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" class="form-control" required />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Bio" class="control-label">Biography</label>
+        <textarea asp-for="Bio" class="form-control" required></textarea>
+        <span asp-validation-for="Bio" class="text-danger"></span>
+    </div>
+
+    <!-- ✅ Ensure Titles is Included -->
+    <div class="form-group">
+        <label asp-for="Titles" class="control-label">Book Titles</label>
+        <input asp-for="Titles" class="form-control" placeholder="Enter book titles, separated by commas" />
+        <span asp-validation-for="Titles" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Author</button>
+</form>
+
+<div>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

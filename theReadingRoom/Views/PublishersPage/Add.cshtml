@@ -1,0 +1,15 @@
+﻿@model AdilBooks.Models.PublisherDto
+
+@{
+    ViewData["Title"] = "Add Publisher";
+}
+
+<h2>Add Publisher</h2>
+
+<form method="post" asp-action="Add">
+    <div>
+        <label for="PublisherName" class="form-label">Publisher Name</label>
+        <input type="text" id="PublisherName" name="PublisherName" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-success">Add Publisher</button>
+</form>
