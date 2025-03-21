@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "winter-semester-2025", "winter-semester-2025", "{1FFF8897-44D6-4FC3-9C90-7710A8E83C87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend2-http5226", "backend2-http5226", "{DBC66944-BFD7-44C3-9678-F7ABF0E485FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "passion-project", "passion-project", "{440ABC24-305F-4D75-8097-846972C67C93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FashionVote", "winter-semester-2025\backend2-http5226\passion-project\FashionVote\FashionVote.csproj", "{7DA42A7B-56D5-4832-BBFE-2F712808C3D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuidTest", "BuidTest\BuidTest.csproj", "{0D92DF19-0179-46C6-8588-4D02C080EC65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DA42A7B-56D5-4832-BBFE-2F712808C3D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA42A7B-56D5-4832-BBFE-2F712808C3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA42A7B-56D5-4832-BBFE-2F712808C3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA42A7B-56D5-4832-BBFE-2F712808C3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D92DF19-0179-46C6-8588-4D02C080EC65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D92DF19-0179-46C6-8588-4D02C080EC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D92DF19-0179-46C6-8588-4D02C080EC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D92DF19-0179-46C6-8588-4D02C080EC65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DBC66944-BFD7-44C3-9678-F7ABF0E485FA} = {1FFF8897-44D6-4FC3-9C90-7710A8E83C87}
+		{440ABC24-305F-4D75-8097-846972C67C93} = {DBC66944-BFD7-44C3-9678-F7ABF0E485FA}
+		{7DA42A7B-56D5-4832-BBFE-2F712808C3D4} = {440ABC24-305F-4D75-8097-846972C67C93}
+	EndGlobalSection
+EndGlobal
