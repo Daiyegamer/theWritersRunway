@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FashionVote.Data;
-using FashionVote.Models;
-using FashionVote.Models.DTOs;
+using AdilBooks.Data;
+using AdilBooks.Models;
+using AdilBooks.Models.DTOs;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
 
-namespace FashionVote.Controllers.Api
+namespace AdilBooks.Controllers.Api
 {
     [ApiController]
     [Route("api/designers")]
