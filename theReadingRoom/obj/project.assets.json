@@ -9271,11 +9271,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\MVP WITH SERVICES final\\PassionProjectFinal\\PassionProject\\AdilBooks\\AdilBooks.csproj",
+      "projectUniqueName": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\AdilBooks.csproj",
       "projectName": "AdilBooks",
-      "projectPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\MVP WITH SERVICES final\\PassionProjectFinal\\PassionProject\\AdilBooks\\AdilBooks.csproj",
+      "projectPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\AdilBooks.csproj",
       "packagesPath": "C:\\Users\\fahad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\MVP WITH SERVICES final\\PassionProjectFinal\\PassionProject\\AdilBooks\\obj\\",
+      "outputPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\fahad\\AppData\\Roaming\\NuGet\\NuGet.Config",

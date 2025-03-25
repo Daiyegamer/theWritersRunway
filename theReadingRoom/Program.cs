@@ -1,17 +1,17 @@
-﻿using AdilBooks.Data;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
+using ReadingRoom.Data; // Keep this for now
+
+// Service interfaces and implementations
 using AdilBooks.Services;
 using AdilBooks.Interfaces;
+using FashionVote.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Fix DbContext Configuration
+// ✅ Setup SQL Server connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
@@ -20,30 +20,39 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// ✅ Identity Services
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+// ✅ Identity + Roles
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders()
+.AddRoles<IdentityRole>();
 
-// ✅ Register Services
+// ✅ Core MVC + Razor + SignalR
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+builder.Services.AddSignalR();
+
+// ✅ Book Domain Services
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
 
-// ✅ Add Controllers with Views
-builder.Services.AddControllersWithViews();
+// ✅ FashionVote Services
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
-// ✅ Add Swagger
+// ✅ Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "AdilBooks API",
+        Title = "WritersRunway API",
         Version = "v1",
-        Description = "API documentation for AdilBooks project"
+        Description = "Unified API for books and fashion voting"
     });
 
-    // ✅ Add Authorization in Swagger
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
@@ -68,23 +77,45 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// ✅ Fix Middleware Order
+// ✅ Role/User Seeding Logic
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
+
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+
+    string adminEmail = "admin@fashionvote.com";
+    string adminPassword = "Admin@123";
+
+    if (!await roleManager.RoleExistsAsync("Admin"))
+        await roleManager.CreateAsync(new IdentityRole("Admin"));
+
+    if (!await roleManager.RoleExistsAsync("Participant"))
+        await roleManager.CreateAsync(new IdentityRole("Participant"));
+
+    var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    if (adminUser == null)
+    {
+        adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+        var result = await userManager.CreateAsync(adminUser, adminPassword);
+        if (result.Succeeded)
+            await userManager.AddToRoleAsync(adminUser, "Admin");
+    }
+}
+
+// ✅ Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
-    try
+    app.UseMigrationsEndPoint();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
     {
-        app.UseMigrationsEndPoint();
-        app.UseSwagger();
-        app.UseSwaggerUI(c =>
-        {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "AdilBooks API v1");
-            c.RoutePrefix = "swagger"; // Swagger UI available at /swagger
-        });
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("🚨 Swagger Initialization Failed: " + ex.Message);
-    }
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WritersRunway API v1");
+        c.RoutePrefix = "swagger";
+    });
 }
 else
 {
@@ -92,18 +123,17 @@ else
     app.UseHsts();
 }
 
-
-// ✅ Important Middleware Order
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthentication(); // 🔹 Place Before Authorization
+
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers();
+// ✅ Routes
 app.MapRazorPages();
+app.MapControllers();
 
-// ✅ Fix Routing
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -122,5 +152,12 @@ app.MapControllerRoute(
     name: "publishers",
     pattern: "Publishers/{action=List}/{id?}",
     defaults: new { controller = "PublishersPage" });
+
+// ✅ SignalR (for FashionVote)
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<FashionVote.Hubs.VoteHub>("/voteHub");
+    endpoints.MapControllers(); // backup route mapping
+});
 
 app.Run();

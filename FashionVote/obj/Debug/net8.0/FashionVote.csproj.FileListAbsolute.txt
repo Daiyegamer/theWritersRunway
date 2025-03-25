@@ -413,3 +413,6 @@
 /Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/fashion-voting-system/FashionVote/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
 /Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/fashion-voting-system/FashionVote/bin/Debug/net8.0/System.Net.WebSockets.WebSocketProtocol.dll
 /Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/fashion-voting-system/FashionVote/bin/Debug/net8.0/app.db
+C:\Users\fahad\OneDrive - Humber Polytechnic\Desktop\Backend 2\creativeCollaboration\theWritersRunway\FashionVote\obj\Debug\net8.0\FashionVote.dll
+C:\Users\fahad\OneDrive - Humber Polytechnic\Desktop\Backend 2\creativeCollaboration\theWritersRunway\FashionVote\obj\Debug\net8.0\refint\FashionVote.dll
+C:\Users\fahad\OneDrive - Humber Polytechnic\Desktop\Backend 2\creativeCollaboration\theWritersRunway\FashionVote\obj\Debug\net8.0\FashionVote.pdb

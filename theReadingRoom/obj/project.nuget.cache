@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mh/EYV5ZmJM=",
+  "dgSpecHash": "EEDJvx4zG7A=",
   "success": true,
-  "projectFilePath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\MVP WITH SERVICES final\\PassionProjectFinal\\PassionProject\\AdilBooks\\AdilBooks.csproj",
+  "projectFilePath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\AdilBooks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fahad\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\fahad\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
