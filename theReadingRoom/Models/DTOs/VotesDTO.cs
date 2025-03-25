@@ -1,4 +1,4 @@
-using FashionVote.Models;
+using AdilBooks.Models;
 using System;
 
 namespace FashionVote.DTOs

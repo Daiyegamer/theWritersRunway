@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-namespace FashionVote.Models.DTOs
+namespace AdilBooks.Models.DTOs
+
 {
     public class ParticipantDTO
     {

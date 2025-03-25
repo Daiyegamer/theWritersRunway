@@ -1,10 +1,11 @@
 
 using System;
-using FashionVote.Models;
+using AdilBooks.Models;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FashionVote.DTOs
+namespace AdilBooks.Models.DTOs
+
 {
   public class ParticipantUpdateDTO
   {

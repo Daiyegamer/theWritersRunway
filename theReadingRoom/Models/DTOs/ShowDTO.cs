@@ -1,7 +1,8 @@
 using System;
-using FashionVote.Models; 
+using AdilBooks.Models; 
 
-namespace FashionVote.Models.DTOs
+namespace AdilBooks.Models.DTOs
+
 {
     public class ShowDto
     {

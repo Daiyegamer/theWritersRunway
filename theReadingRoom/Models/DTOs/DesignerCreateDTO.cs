@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 
-namespace FashionVote.Models.DTOs
+namespace AdilBooks.Models.DTOs
 {
     /// <summary>
     /// DTO for creating a new designer.

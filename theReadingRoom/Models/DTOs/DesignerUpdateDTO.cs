@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace FashionVote.Models.DTOs
+namespace AdilBooks.Models.DTOs
+
 {
     public class DesignerUpdateDTO
     {

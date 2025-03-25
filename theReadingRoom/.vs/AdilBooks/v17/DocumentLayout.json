@@ -3,12 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\adilbooks.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:adilbooks.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\votesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\votesdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\participantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\participantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\designercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\designercreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\designerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\designerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\participantupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\participantupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\showdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\showdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\designershow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\designershow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\vote.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\show.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\participantshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\participantshow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\participant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\dtos\\votesubmissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\dtos\\votesubmissiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\migrations\\20250325183853_firstunifiedmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:migrations\\20250325183853_firstunifiedmigration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\controllers\\authorspagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:controllers\\authorspagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\adilbooks.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:adilbooks.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +93,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\interfaces\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:interfaces\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\views\\authorspage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -43,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:models\\author.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|c:\\users\\fahad\\onedrive - humber polytechnic\\desktop\\backend 2\\creativecollaboration\\thewritersrunway\\thereadingroom\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B760AE66-ABFC-4511-BFCE-01154E17B77D}|AdilBooks.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
@@ -58,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,7 +138,215 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ParticipantDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ParticipantDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ParticipantDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ParticipantDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ParticipantDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:17:43.076Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DesignerCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\DesignerCreateDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\DesignerCreateDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\DesignerCreateDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\DesignerCreateDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:17:33.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ParticipantUpdateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ParticipantUpdateDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ParticipantUpdateDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ParticipantUpdateDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ParticipantUpdateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:17:26.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShowDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ShowDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\ShowDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\ShowDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\ShowDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:17:23.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:17:07.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Vote.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Vote.cs",
+              "RelativeDocumentMoniker": "Models\\Vote.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Vote.cs",
+              "RelativeToolTip": "Models\\Vote.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:16:44.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Show.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Show.cs",
+              "RelativeDocumentMoniker": "Models\\Show.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Show.cs",
+              "RelativeToolTip": "Models\\Show.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:16:34.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ParticipantShow.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\ParticipantShow.cs",
+              "RelativeDocumentMoniker": "Models\\ParticipantShow.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\ParticipantShow.cs",
+              "RelativeToolTip": "Models\\ParticipantShow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:16:25.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Participant.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Participant.cs",
+              "RelativeDocumentMoniker": "Models\\Participant.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Participant.cs",
+              "RelativeToolTip": "Models\\Participant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:16:17.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DesignerShow.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DesignerShow.cs",
+              "RelativeDocumentMoniker": "Models\\DesignerShow.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DesignerShow.cs",
+              "RelativeToolTip": "Models\\DesignerShow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:16:04.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DesignerDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\DesignerDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\DesignerDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\DesignerDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\DesignerDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T19:09:22.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "VotesDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\VotesDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\VotesDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\VotesDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\VotesDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:57:46.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "VoteSubmissionDTO.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\VoteSubmissionDTO.cs",
+              "RelativeDocumentMoniker": "Models\\DTOs\\VoteSubmissionDTO.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\DTOs\\VoteSubmissionDTO.cs",
+              "RelativeToolTip": "Models\\DTOs\\VoteSubmissionDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:57:43.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Designer.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Designer.cs",
+              "RelativeDocumentMoniker": "Models\\Designer.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Designer.cs",
+              "RelativeToolTip": "Models\\Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:57:32.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "20250325183853_firstUnifiedMigration.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Migrations\\20250325183853_firstUnifiedMigration.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250325183853_firstUnifiedMigration.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Migrations\\20250325183853_firstUnifiedMigration.cs",
+              "RelativeToolTip": "Migrations\\20250325183853_firstUnifiedMigration.cs",
+              "ViewState": "AgIAABIBAAAAAAAAAAAkwCQBAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:38:53.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-25T18:36:31.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "AdilBooks",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\AdilBooks.csproj",
               "RelativeDocumentMoniker": "AdilBooks.csproj",
@@ -86,7 +358,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 21,
               "Title": "BooksController.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "Controllers\\BooksController.cs",
@@ -98,19 +370,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 18,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Book.cs",
               "RelativeDocumentMoniker": "Models\\Book.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Book.cs",
               "RelativeToolTip": "Models\\Book.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-23T00:03:52.883Z"
+              "WhenOpened": "2025-02-23T00:03:52.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 22,
               "Title": "IAuthorService.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Interfaces\\IAuthorService.cs",
               "RelativeDocumentMoniker": "Interfaces\\IAuthorService.cs",
@@ -122,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 24,
               "Title": "BookService.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Services\\BookService.cs",
               "RelativeDocumentMoniker": "Services\\BookService.cs",
@@ -134,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 20,
               "Title": "AuthorService.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Services\\AuthorService.cs",
               "RelativeDocumentMoniker": "Services\\AuthorService.cs",
@@ -146,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 26,
               "Title": "Author.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Models\\Author.cs",
               "RelativeDocumentMoniker": "Models\\Author.cs",
@@ -158,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 27,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -170,7 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 25,
               "Title": "Add.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Views\\AuthorsPage\\Add.cshtml",
               "RelativeDocumentMoniker": "Views\\AuthorsPage\\Add.cshtml",
@@ -182,19 +455,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAlwH0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIcAAAAAAAAAAAAAAJ4AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T18:46:47.472Z"
+              "WhenOpened": "2025-02-22T18:46:47.472Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 23,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Views\\AuthorsPage\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\AuthorsPage\\Edit.cshtml",
@@ -206,13 +480,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 17,
               "Title": "AuthorsPageController.cs",
               "DocumentMoniker": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Controllers\\AuthorsPageController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthorsPageController.cs",
               "ToolTip": "C:\\Users\\fahad\\OneDrive - Humber Polytechnic\\Desktop\\Backend 2\\creativeCollaboration\\theWritersRunway\\theReadingRoom\\Controllers\\AuthorsPageController.cs",
               "RelativeToolTip": "Controllers\\AuthorsPageController.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAA6wIQAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAiwIQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-22T18:46:16.138Z",
               "EditorCaption": ""
