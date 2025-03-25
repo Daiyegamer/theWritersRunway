@@ -1,4 +1,4 @@
-namespace FashionVote.Models
+namespace AdilBooks.Models
 
 {
     public class DesignerShow

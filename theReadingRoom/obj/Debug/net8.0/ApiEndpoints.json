@@ -116,6 +116,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AdilBooks.Controllers.DesignersApiController",
+    "Method": "GetDesigners",
+    "RelativePath": "api/DesignersApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.ParticipantsApiController",
+    "Method": "GetParticipants",
+    "RelativePath": "api/ParticipantsApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AdilBooks.Controllers.PublishersController",
     "Method": "AddPublisher",
     "RelativePath": "api/Publishers/Add",
@@ -187,6 +207,26 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.ShowsApiController",
+    "Method": "GetShows",
+    "RelativePath": "api/ShowsApi/list",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.VotesApiController",
+    "Method": "GetVotes",
+    "RelativePath": "api/VotesApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FashionVote.Models
+namespace AdilBooks.Models
 {
     public class Show
     {

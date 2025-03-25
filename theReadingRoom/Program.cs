@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using ReadingRoom.Data; // Keep this for now
+using AdilBooks.Data; // Keep this for now
 
 // Service interfaces and implementations
 using AdilBooks.Services;
 using AdilBooks.Interfaces;
-using FashionVote.Services;
+//using FashionVote.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,7 +40,7 @@ builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
 
 // ✅ FashionVote Services
-builder.Services.AddSingleton<IEmailSender, EmailSender>();
+//builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
 // ✅ Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -156,7 +156,7 @@ app.MapControllerRoute(
 // ✅ SignalR (for FashionVote)
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapHub<FashionVote.Hubs.VoteHub>("/voteHub");
+    //endpoints.MapHub<FashionVote.Hubs.VoteHub>("/voteHub");
     endpoints.MapControllers(); // backup route mapping
 });
 

@@ -1,8 +1,11 @@
-using System.Collections.Generic;
-using FashionVote.Models.DTOs;
 
-namespace FashionVote.Models
-{
+using AdilBooks.Models;
+using System.Collections.Generic;
+
+namespace AdilBooks.Models.DTOs;
+
+
+
     public class DesignerDTO
     {
         public int DesignerId { get; set; }
@@ -19,4 +22,4 @@ namespace FashionVote.Models
             Shows = designer.DesignerShows?.Select(ds => new ShowDto(ds.Show)).ToList();
         }
     }
-}
+

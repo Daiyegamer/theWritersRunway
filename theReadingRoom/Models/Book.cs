@@ -1,7 +1,7 @@
 ﻿
 
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using AdilBooks.Data.Migrations;
+//using AdilBooks.Data.Migrations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace AdilBooks.Models

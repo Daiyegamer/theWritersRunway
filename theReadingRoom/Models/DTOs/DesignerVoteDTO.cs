@@ -1,4 +1,5 @@
-namespace FashionVote.Models.DTOs
+namespace AdilBooks.Models.DTOs
+
 {
     public class DesignerVoteDTO
     {

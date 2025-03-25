@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AdilBooks")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1cfeb8ddf88c67338ce7f329bedb54c04a3339b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60908810cca7bfe361ddb7c9b9e8c0cb0be41c0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AdilBooks")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AdilBooks")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
