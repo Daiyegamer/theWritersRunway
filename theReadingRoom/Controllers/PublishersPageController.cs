@@ -64,7 +64,7 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Publishers/Add
-        [Authorize]
+        // [Authorize]
         [HttpPost("Add")]
         public async Task<IActionResult> Add(PublisherDto publisherDto)
         {
@@ -115,7 +115,7 @@ namespace AdilBooks.Controllers
 
 
         // POST: Publishers/Update
-        [Authorize]
+        // [Authorize]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(PublisherDto publisherDto)
         {
@@ -150,7 +150,7 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Publishers/Delete/{id}
-        [Authorize]
+        // [Authorize]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {

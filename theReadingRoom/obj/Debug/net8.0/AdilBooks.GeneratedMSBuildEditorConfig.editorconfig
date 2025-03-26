@@ -17,203 +17,203 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AdilBooks
 build_property.RootNamespace = AdilBooks
-build_property.ProjectDir = C:\Users\fahad\OneDrive - Humber Polytechnic\Desktop\Backend 2\creativeCollaboration\theWritersRunway\theReadingRoom\
+build_property.ProjectDir = /Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\fahad\OneDrive - Humber Polytechnic\Desktop\Backend 2\creativeCollaboration\theWritersRunway\theReadingRoom
+build_property.MSBuildProjectDirectory = /Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcQWRkLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/ConfirmDelete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvQ29uZmlybURlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcRGVsZXRlLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcRWRpdC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/Find.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcRmluZC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/Find.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvRmluZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/AuthorsPage/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aG9yc1BhZ2VcTGlzdC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/AuthorsPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXV0aG9yc1BhZ2UvTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXEFkZC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0FkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/ConfirmDelete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXENvbmZpcm1EZWxldGUuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0NvbmZpcm1EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXERlbGV0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXEVkaXQuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/Find.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXEZpbmQuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/Find.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0ZpbmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/BooksPage/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NQYWdlXExpc3QuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/BooksPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQm9va3NQYWdlL0xpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Designers/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduZXJzXENyZWF0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Designers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVzaWduZXJzL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Designers/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduZXJzXERlbGV0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Designers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVzaWduZXJzL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Designers/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduZXJzXERldGFpbHMuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Designers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVzaWduZXJzL0RldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Designers/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduZXJzXEVkaXQuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Designers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVzaWduZXJzL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Designers/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzaWduZXJzXEluZGV4LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Designers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRGVzaWduZXJzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Participants/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXERlbGV0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Participants/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFydGljaXBhbnRzL0RlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Participants/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXEVkaXQuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Participants/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFydGljaXBhbnRzL0VkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Participants/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydGljaXBhbnRzXEluZGV4LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Participants/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUGFydGljaXBhbnRzL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/Add.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcQWRkLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/ConfirmDelete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvQ29uZmlybURlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcRGVsZXRlLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcRWRpdC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/Find.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcRmluZC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/Find.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvRmluZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/List.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcTGlzdC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/PublishersPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHVibGlzaGVyc1BhZ2UvTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/AdminIndex.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcQWRtaW5JbmRleC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/AdminIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvQWRtaW5JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcQ3JlYXRlLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcRGVsZXRlLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/DeleteConfirmParticipant.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcRGVsZXRlQ29uZmlybVBhcnRpY2lwYW50LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/DeleteConfirmParticipant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvRGVsZXRlQ29uZmlybVBhcnRpY2lwYW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/DesignersInShow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcRGVzaWduZXJzSW5TaG93LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/DesignersInShow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvRGVzaWduZXJzSW5TaG93LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcRGV0YWlscy5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcRWRpdC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcSW5kZXguY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/MyShows.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcTXlTaG93cy5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/MyShows.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvTXlTaG93cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/ParticipantsInShow.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcUGFydGljaXBhbnRzSW5TaG93LmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shows/ParticipantsInShow.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hvd3MvUGFydGljaXBhbnRzSW5TaG93LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Votes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZXNcSW5kZXguY3NodG1s
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Votes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVm90ZXMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Votes/ShowVotes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZXNcU2hvd1ZvdGVzLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Votes/ShowVotes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVm90ZXMvU2hvd1ZvdGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Votes/Vote.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm90ZXNcVm90ZS5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Votes/Vote.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVm90ZXMvVm90ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-hiwkcvmteg
+[/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vo3uyclc5w

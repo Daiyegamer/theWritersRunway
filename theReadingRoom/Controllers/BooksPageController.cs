@@ -72,7 +72,7 @@ public async Task<IActionResult> Find(int id)
         }
 
         // POST: Books/Add
-        [Authorize]
+        // [Authorize]
         [HttpPost("Add")]
         public async Task<IActionResult> Add(AddBookDto addBookDto)
         {
@@ -117,7 +117,7 @@ public async Task<IActionResult> Find(int id)
         }
 
         // POST: Books/Update
-        [Authorize]
+        // [Authorize]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(UpdateBookDto updateBookDto)
         {
@@ -148,7 +148,7 @@ public async Task<IActionResult> Find(int id)
         }
 
         // POST: Books/Delete/{id}
-        [Authorize]
+        // [Authorize]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -162,7 +162,7 @@ public async Task<IActionResult> Find(int id)
         }
 
         // POST: Books/LinkAuthorToBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
         [HttpPost("LinkAuthorToBook")]
         public async Task<IActionResult> LinkAuthorToBook([FromForm] int bookId, [FromForm] int authorId)
 
@@ -181,7 +181,7 @@ public async Task<IActionResult> Find(int id)
         }
 
         // POST: Books/UnlinkAuthorFromBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
         [HttpPost("UnlinkAuthorFromBook")]
         public async Task<IActionResult> UnlinkAuthorFromBook([FromForm] int bookId, [FromForm] int authorId)
 
