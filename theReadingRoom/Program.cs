@@ -156,7 +156,7 @@ app.MapControllerRoute(
 // ✅ SignalR (for FashionVote)
 app.UseEndpoints(endpoints =>
 {
-    //endpoints.MapHub<FashionVote.Hubs.VoteHub>("/voteHub");
+    endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
     endpoints.MapControllers(); // backup route mapping
 });
 

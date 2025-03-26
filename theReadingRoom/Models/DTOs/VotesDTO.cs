@@ -1,7 +1,7 @@
 using AdilBooks.Models;
 using System;
 
-namespace FashionVote.DTOs
+namespace AdilBooks.DTOs
 {
     public class VoteDTO
     {

@@ -1,0 +1,33 @@
+@model AdilBooks.Models.Show
+@{
+    ViewData["Title"] = "Edit Show";
+}
+
+<h1>Edit Show</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="ShowId" />
+
+    <div class="form-group">
+        <label for="ShowName">Show Name</label>
+        <input asp-for="ShowName" class="form-control" />
+        <span asp-validation-for="ShowName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Location">Location</label>
+        <input asp-for="Location" class="form-control" />
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="StartTime">Start Time</label>
+        <input asp-for="StartTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="EndTime">End Time</label>
+        <input asp-for="EndTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary save-changes">Save Changes</button>
+     <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
+</form>
