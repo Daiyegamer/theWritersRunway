@@ -17,5 +17,6 @@ namespace AdilBooks.Models.DTOs
         public string Category { get; set; }
 
         public List<int>? SelectedShowIds { get; set; }
+        public List<int>? SelectedBookIds { get; set; } 
     }
 }

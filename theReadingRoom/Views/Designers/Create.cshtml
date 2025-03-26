@@ -39,6 +39,12 @@
         </select>
     </div>
 
+    <div class="form-group">
+        <label>Select Books</label>
+        <select asp-for="SelectedBookIds" asp-items="@(new MultiSelectList(ViewBag.Books, "BookId", "Title"))" multiple class="form-control"></select>
+    </div>
+
+
     <button type="submit" class="btn btn-primary">Save</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>

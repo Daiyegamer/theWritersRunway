@@ -19,5 +19,8 @@ namespace AdilBooks.Models
         // Initialize Collections to Prevent Validation Errors
         public ICollection<DesignerShow> DesignerShows { get; set; } = new List<DesignerShow>();
         public ICollection<Vote> Votes { get; set; } = new List<Vote>();
+
+        public ICollection<DesignerBook> DesignerBooks { get; set; } = new List<DesignerBook>();
+
     }
 }

@@ -23,6 +23,9 @@ namespace AdilBooks.Models
 
 
         public virtual ICollection<Author>? Authors { get; set; }
+
+        public ICollection<DesignerBook> DesignerBooks { get; set; } = new List<DesignerBook>();
+
     }
     public class BookDto
     {

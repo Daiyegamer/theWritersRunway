@@ -1,20 +1,22 @@
-@model AdilBooks.Models.Designer
+@* @model AdilBooks.Models.Designer *@
+@model AdilBooks.Models.ViewModels.DesignerDetailsViewModel
+
 
 @{
     ViewData["Title"] = "Designer Details";
 }
 
-<h1>@Model.Name</h1>
-<p><strong>Category:</strong> @Model.Category</p>
-<p><strong>Created At:</strong> @Model.CreatedAt.ToString("g")</p>
+<h1>@Model.Designer.Name</h1>
+<p><strong>Category:</strong> @Model.Designer.Category</p>
+<p><strong>Created At:</strong> @Model.Designer.CreatedAt.ToString("g")</p>
 
 <hr />
 
 <h3>Shows Participating In</h3>
-@if (Model.DesignerShows?.Any() == true)
+@if (Model.Designer.DesignerShows?.Any() == true)
 {
     <ul>
-        @foreach (var ds in Model.DesignerShows)
+       @foreach (var ds in Model.Designer.DesignerShows)
         {
             <li>@ds.Show.ShowName (@ds.Show.Location)</li>
         }
@@ -24,5 +26,31 @@ else
 {
     <p>No shows assigned.</p>
 }
+
+<h3>Books Designed</h3>
+@if (Model.Books.Any())
+{
+    <ul>
+        @foreach (var book in Model.Books)
+        {
+            <li>
+                @book.Title
+                @if (Model.ShowRemoveButton)
+                {
+                    <form method="post" asp-action="RemoveBook" asp-controller="Designers" style="display:inline">
+                        <input type="hidden" name="designerId" value="@Model.Designer.DesignerId" />
+                        <input type="hidden" name="bookId" value="@book.BookId" />
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                }
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No books assigned.</p>
+}
+
 
 <a asp-action="Index" class="btn btn-secondary">Back to Designers</a>

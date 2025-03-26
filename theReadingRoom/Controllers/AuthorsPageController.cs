@@ -53,7 +53,7 @@ namespace AdilBooks.Controllers
         {
             return View(new AuthorDto()); // ✅ Ensure a model is sent
         }
-        [Authorize]
+        // [Authorize]
         [HttpPost("Add")]
         [ValidateAntiForgeryToken] // ✅ Prevent CSRF Attacks
         public async Task<IActionResult> Add(AuthorDto authorDto)
@@ -99,7 +99,7 @@ namespace AdilBooks.Controllers
 
             return View(author);
         }
-        [Authorize]
+        // [Authorize]
         [HttpPost("Update")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(AuthorDto authorDto)
@@ -136,7 +136,7 @@ namespace AdilBooks.Controllers
 
 
         // POST: Authors/Delete/{id}
-        [Authorize]
+        // [Authorize]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {

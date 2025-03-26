@@ -20,5 +20,7 @@ namespace AdilBooks.Models.DTOs
         // public int[] SelectedShowIds { get; set; } = new int[0];
         public List<int> SelectedShowIds { get; set; } = new List<int>();
 
+        public List<int> SelectedBookIds { get; set; } = new List<int>();
+
     }
 }

@@ -52,18 +52,124 @@
             </div>
         </div>
 
-        <!-- Fashion Vote -->
+
+        <!-- Add Authors -->
         <div class="col-md-3">
-            <div class="card shadow-lg border-warning">
+            <div class="card shadow-lg border-secondary">
                 <div class="card-body">
-                    <h5 class="card-title text-warning">👗 Fashion Vote</h5>
-                    <p class="card-text">Manage shows, vote for designers, and explore participants.</p>
-                    <a asp-controller="Designers" asp-action="Index" class="btn btn-warning">
-                        <i class="fas fa-scissors"></i> Go to FashionVote
+                    <h5 class="card-title text-secondary">✍️ Add Authors</h5>
+                    <p class="card-text">Meet and discover talented authors.</p>
+                    <a asp-controller="Authors" asp-action="Add" class="btn btn-secondary">
+                        <i class="fas fa-feather-alt"></i> Add Authors
                     </a>
                 </div>
             </div>
         </div>
+
+
+        <!-- Add Books -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">📖 Add Books</h5>
+                    <p class="card-text">Browse and manage a vast collection of books.</p>
+                    <a asp-controller="Books" asp-action="Add" class="btn btn-primary">
+                        <i class="fas fa-book"></i>Add Books
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Publishers -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success">🏢 Add Publishers</h5>
+                    <p class="card-text">Find publishers and their publications.</p>
+                    <a asp-controller="Publishers" asp-action="Add" class="btn btn-success">
+                        <i class="fas fa-building"></i> Add Publishers
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Fashion Vote -->
+        <!-- Add Designer-->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-warning">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">👗 Add Designer</h5>
+                    <p class="card-text">Manage designers</p>
+                    <a asp-controller="Designers" asp-action="Create" class="btn btn-warning">
+                        <i class="fas fa-scissors"></i> Add Designer
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Designers & Books -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info">View Designer Books</h5>
+                    <p class="card-text">View designers and their assigned books.</p>
+                    <a asp-controller="Designers" asp-action="Index" class="btn btn-info">
+                        <i class="fas fa-user-tag"></i> View Designers Books
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Shows -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Shows</h5>
+                    <p class="card-text">View Upcoming shows and register.</p>
+                    <a asp-controller="Shows" asp-action="Index" class="btn btn-info">
+                        <i class="fas fa-user-tag"></i> View Upcoming Shows
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- My Shows -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Shows</h5>
+                    <p class="card-text">View My registeres shows and vote.</p>
+                    <a asp-controller="Shows" asp-action="MyShows" class="btn btn-info">
+                        <i class="fas fa-user-tag"></i> View My Shows
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- Add Show -->
+        <div class="col-md-3">
+            <div class="card shadow-lg border-info">
+                <div class="card-body">
+                    <h5 class="card-title text-info">Add Show</h5>
+                    <p class="card-text">Admin to add a show.</p>
+                    <a asp-controller="Shows" asp-action="AdminIndex" class="btn btn-info">
+                        <i class="fas fa-user-tag"></i> Add Shows
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+
+
     </div>
 
     <!-- Call to Action Section (Only for Unauthenticated Users) -->
