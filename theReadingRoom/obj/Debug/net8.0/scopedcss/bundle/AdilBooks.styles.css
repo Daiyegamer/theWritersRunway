@@ -40,10 +40,26 @@ button.accept-policy[b-hiwkcvmteg] {
   line-height: inherit;
 }
 
-.footer[b-hiwkcvmteg] {
-  position: absolute;
-  bottom: 0;
+.container[b-hiwkcvmteg] {
+  flex: 1; 
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+
+footer[b-hiwkcvmteg] {
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto; 
   width: 100%;
   white-space: nowrap;
-  line-height: 60px;
+  line-height: 30px;
+  bottom: 0;
+  left: 0;
+  margin-top: 40px;
 }
