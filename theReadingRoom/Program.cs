@@ -21,13 +21,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // ✅ Identity + Roles
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders()
-.AddRoles<IdentityRole>();
+.AddDefaultUI();
+
+//.AddRoles<IdentityRole>();
 
 // ✅ Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
@@ -84,26 +85,26 @@ using (var scope = app.Services.CreateScope())
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
     dbContext.Database.Migrate();
 
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
-    string adminEmail = "admin@fashionvote.com";
-    string adminPassword = "Admin@123";
+    //string adminEmail = "admin@fashionvote.com";
+    //string adminPassword = "Admin@123";
 
-    if (!await roleManager.RoleExistsAsync("Admin"))
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
+    //if (!await roleManager.RoleExistsAsync("Admin"))
+    //    await roleManager.CreateAsync(new IdentityRole("Admin"));
 
-    if (!await roleManager.RoleExistsAsync("Participant"))
-        await roleManager.CreateAsync(new IdentityRole("Participant"));
+    //if (!await roleManager.RoleExistsAsync("Participant"))
+    //    await roleManager.CreateAsync(new IdentityRole("Participant"));
 
-    var adminUser = await userManager.FindByEmailAsync(adminEmail);
-    if (adminUser == null)
-    {
-        adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
-        var result = await userManager.CreateAsync(adminUser, adminPassword);
-        if (result.Succeeded)
-            await userManager.AddToRoleAsync(adminUser, "Admin");
-    }
+    //var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    //if (adminUser == null)
+    //{
+    //    adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+    //    var result = await userManager.CreateAsync(adminUser, adminPassword);
+    //    if (result.Succeeded)
+    //        await userManager.AddToRoleAsync(adminUser, "Admin");
+    //}
 }
 
 // ✅ Middleware Pipeline
@@ -130,7 +131,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ✅ Routes
 app.MapRazorPages();
 app.MapControllers();
 

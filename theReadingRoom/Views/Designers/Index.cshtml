@@ -13,11 +13,12 @@
 {
     <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
-
-<p>
-    <a asp-action="Create" class="btn btn-primary add-designer">Add Designer</a>
-</p>
-
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary add-designer">Add Designer</a>
+    </p>
+}
 
 <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -34,8 +35,11 @@
                     <td class="align-middle text-start">@designer.Name</td>
                     <td class="align-middle text-end">
                         <a asp-action="Details" asp-route-id="@designer.DesignerId" class="btn btn-info btn-sm view-designer">View</a>
-                        <a asp-action="Edit" asp-route-id="@designer.DesignerId" class="btn btn-warning btn-sm edit-designer">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@designer.DesignerId" class="btn btn-danger btn-sm">Delete</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-action="Edit" asp-route-id="@designer.DesignerId" class="btn btn-warning btn-sm edit-designer">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@designer.DesignerId" class="btn btn-danger btn-sm">Delete</a>
+                        }
                     </td>
                 </tr>
             }
