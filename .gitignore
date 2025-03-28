@@ -1,0 +1,28 @@
+# Build
+bin/
+obj/
+out/
+
+# User-specific
+*.user
+*.suo
+.vscode/
+*.swp
+
+# Logs
+*.log
+
+# Configuration
+appsettings.Development.json
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Rider / VS Code / Visual Studio
+.idea/
+.vscode/
+.vs/
+
+# Dotnet tools
+*.db
