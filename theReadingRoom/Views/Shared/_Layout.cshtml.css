@@ -5,6 +5,7 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  
 }
 
 a {
@@ -16,7 +17,10 @@ a {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-
+.btn-secondary {
+  color: #fff;
+    
+}
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #1b6ec2;
@@ -44,9 +48,10 @@ button.accept-policy {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  background: #fff;
+  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  
 }
 
 

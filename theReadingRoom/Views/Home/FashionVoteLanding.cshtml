@@ -23,7 +23,7 @@
             <div class="card shadow border-primary">
                 <div class="card-body">
                     <h5 class="card-title text-primary">🎨 Designers</h5>
-                    <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-primary">Manage Designers</a>
+                    <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-primary">Browse Designers</a>
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@
             <div class="card shadow border-success">
                 <div class="card-body">
                     <h5 class="card-title text-success">🧵 Participants</h5>
-                    <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-success">Manage Participants</a>
+                    <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-success">Browse Participants</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,12 @@
             <div class="card shadow border-warning">
                 <div class="card-body">
                     <h5 class="card-title text-warning">📅 Shows</h5>
-                    <a asp-controller="Shows" asp-action="Index" class="btn btn-outline-warning">Browse Shows</a>
+                    <a asp-controller="Shows" asp-action="Index" class="btn btn-outline-warning mb-2">Browse Shows</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Shows" asp-action="AdminIndex" class="btn btn-outline-dark mt-1">Manage Shows</a>
+                    }
                 </div>
             </div>
         </div>
@@ -47,11 +52,12 @@
             <div class="card shadow border-danger">
                 <div class="card-body">
                     <h5 class="card-title text-danger">🗳️ Voting</h5>
-                    <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-danger">View Votes</a>
+                    <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-danger">Vote Summary</a>
                 </div>
             </div>
         </div>
     </div>
+   
 
     <!-- CTA for Users -->
     @if (!User.Identity.IsAuthenticated)
@@ -65,3 +71,4 @@
         </div>
     }
 </div>
+

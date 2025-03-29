@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AdilBooks.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/FashionVote.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -140,15 +139,29 @@
 
         <main role="main" class="pb-3">
             @RenderBody()
-        </main>
+            <div>
+                <a class="btn btn-secondary" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </a>
+            </div>
     </div>
 
-    <footer class="border-top footer text-muted mt-4">
+
+        </main>
+    
+    <footer class="border-top footer text-muted mt-4">        
         <div class="container text-center">
             &copy; @DateTime.Now.Year - WritersRunway -
             <a asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+        <div class="text-center mt-4">
+            <a href="/" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
     </footer>
+    
+  
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

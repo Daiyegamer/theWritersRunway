@@ -6,6 +6,7 @@ a.navbar-brand[b-hiwkcvmteg] {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  
 }
 
 a[b-hiwkcvmteg] {
@@ -17,7 +18,10 @@ a[b-hiwkcvmteg] {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-
+.btn-secondary[b-hiwkcvmteg] {
+  color: #fff;
+    
+}
 .nav-pills .nav-link.active[b-hiwkcvmteg], .nav-pills .show > .nav-link[b-hiwkcvmteg] {
   color: #fff;
   background-color: #1b6ec2;
@@ -45,9 +49,10 @@ button.accept-policy[b-hiwkcvmteg] {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
-  background: #fff;
+  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  
 }
 
 
