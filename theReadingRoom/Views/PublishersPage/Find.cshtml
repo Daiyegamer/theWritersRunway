@@ -37,12 +37,21 @@
                         </li>
                     }
                 </ul>
+                
             }
             else
             {
                 <p class="text-muted">No books found for this publisher.</p>
             }
         </div>
+    </div>
+    <div>
+    <a asp-controller="PublishersPage"
+       asp-action="ManageShows"
+       asp-route-id="@publisher.PublisherId"
+       class="btn btn-outline-warning btn-sm">
+        🎭 View and Manage Shows
+    </a>
     </div>
 
     <!-- Back to List Button -->

@@ -146,6 +146,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/PublishersPage/ManageShows.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGlzaGVyc1BhZ2VcTWFuYWdlU2hvd3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -196,6 +200,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/ParticipantsInShow.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcUGFydGljaXBhbnRzSW5TaG93LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Shows/ShowPublishers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hvd3NcU2hvd1B1Ymxpc2hlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fahad/OneDrive - Humber Polytechnic/Desktop/Backend 2/creativeCollaboration/theWritersRunway/theReadingRoom/Views/Votes/Index.cshtml]

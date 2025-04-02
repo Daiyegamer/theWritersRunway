@@ -37,19 +37,25 @@ namespace AdilBooks.Services
         public async Task<PublisherDto?> FindPublisher(int id)
         {
             var publisher = await _context.Publishers
-                .Include(p => p.Books) // ✅ Load related books
+                .Include(p => p.Books)
+                .Include(p => p.PublisherShows)
+                    .ThenInclude(ps => ps.Show)
                 .FirstOrDefaultAsync(p => p.PublisherId == id);
 
             if (publisher == null)
-            {
                 return null;
-            }
 
             return new PublisherDto
             {
                 PublisherId = publisher.PublisherId,
                 PublisherName = publisher.PublisherName,
-                Books = publisher.Books.Select(b => b.Title).ToList() // ✅ Extract book titles
+                Books = publisher.Books.Select(b => b.Title).ToList(),
+                Shows = publisher.PublisherShows.Select(ps => ps.Show.ShowName).ToList(),
+                // ✅ Return show names
+                 ShowMap = publisher.PublisherShows.ToDictionary(
+                 ps => ps.ShowId,
+                 ps => ps.Show.ShowName
+                 )
             };
         }
 
@@ -99,10 +105,10 @@ namespace AdilBooks.Services
                     return serviceResponse;
                 }
 
-                // ✅ Update the publisher name
+                //  Update the publisher name
                 publisher.PublisherName = publisherDto.PublisherName;
 
-                // ✅ Update books if provided
+                //  Update books if provided
                 if (publisherDto.Books.Any())
                 {
                     // 🔥 Find books by title

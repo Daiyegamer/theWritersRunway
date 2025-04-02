@@ -164,14 +164,19 @@ namespace AdilBooks.Controllers
             TempData["SuccessMessage"] = "Publisher deleted successfully!";
             return RedirectToAction("List");
         }
-        [Authorize]
+
         [HttpGet("ManageShowsForPublisher/{id}")]
         public async Task<IActionResult> ManageShows(int id)
         {
             var shows = await _publisherService.GetShowsByPublisherAsync(id);
-            // ViewBag.PublisherId = id;
-            // return View(shows);
-            return Ok(shows); // ✅ For Swagger testing
+            var allShows = await _context.Shows.ToListAsync();
+            var publisher = await _context.Publishers.FindAsync(id);
+
+            ViewBag.PublisherId = id;
+            ViewBag.AllShows = allShows;
+            ViewBag.PublisherName = publisher?.PublisherName ?? "No Publisher Associated";
+
+            return View(shows);
         }
 
         [Authorize]
@@ -179,9 +184,9 @@ namespace AdilBooks.Controllers
         public async Task<IActionResult> LinkShow(int publisherId, int showId)
         {
             var result = await _publisherService.LinkShowAsync(publisherId, showId);
-            // TempData["Message"] = result ? "Show linked." : "Already linked.";
-            // return RedirectToAction("ManageShows", new { id = publisherId });
-            return Ok(new { message = result ? "Show linked." : "Already linked." }); // ✅ For Swagger testing
+             TempData["Message"] = result ? "Show linked." : "Already linked.";
+            return RedirectToAction("ManageShows", new { id = publisherId });
+            //return Ok(new { message = result ? "Show linked." : "Already linked." }); // ✅ For Swagger testing
         }
 
         [Authorize]
@@ -189,18 +194,18 @@ namespace AdilBooks.Controllers
         public async Task<IActionResult> UnlinkShow(int publisherId, int showId)
         {
             await _publisherService.UnlinkShowAsync(publisherId, showId);
-            // TempData["Message"] = "Show unlinked.";
-            // return RedirectToAction("ManageShows", new { id = publisherId });
-            return Ok(new { message = "Show unlinked." }); // ✅ For Swagger testing
+            TempData["Message"] = "Show unlinked.";
+             return RedirectToAction("ManageShows", new { id = publisherId });
+            //return Ok(new { message = "Show unlinked." }); // ✅ For Swagger testing
         }
 
         [HttpGet("ShowPublishersForShow/{id}")]
         public async Task<IActionResult> ShowPublishers(int id)
         {
             var publishers = await _publisherService.GetPublishersByShowAsync(id);
-            // ViewBag.ShowId = id;
-            // return View(publishers);
-            return Ok(publishers); // ✅ For Swagger testing
+            ViewBag.ShowId = id;
+            return View(publishers);
+            //return Ok(publishers); // ✅ For Swagger testing
         }
 
 

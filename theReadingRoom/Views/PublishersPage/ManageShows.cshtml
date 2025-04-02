@@ -1,0 +1,74 @@
+﻿@model List<AdilBooks.Models.Show>
+@{
+    ViewData["Title"] = "Manage Shows";
+    var publisherId = ViewBag.PublisherId as int? ?? 0;
+    var publisherName = ViewBag.PublisherName as string ?? "Unknown Publisher";
+    var allShows = ViewBag.AllShows as List<AdilBooks.Models.Show> ?? new List<AdilBooks.Models.Show>();
+    var linkedShowIds = Model.Select(s => s.ShowId).ToList();
+}
+
+
+<h2>Shows Sponsored by <strong>@publisherName</strong></h2>
+
+
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Show Name</th>
+            <th>Location</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var show in Model)
+        {
+            <tr>
+                <td>@show.ShowName</td>
+                <td>@show.Location</td>
+                <td>@show.StartTime.ToShortDateString()</td>
+                <td>@show.EndTime.ToShortDateString()</td>
+                <td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form asp-action="UnlinkShow" method="post" class="d-inline">
+                            <input type="hidden" name="publisherId" value="@publisherId" />
+                            <input type="hidden" name="showId" value="@show.ShowId" />
+                            <button type="submit" class="btn btn-danger btn-sm">Unlink</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+<h3>Link a New Show</h3>
+<form asp-action="LinkShow" method="post">
+    <input type="hidden" name="publisherId" value="@publisherId" />
+
+    <div class="mb-3">
+        <select class="form-select" name="showId" required>
+            <option value="">-- Select a Show --</option>
+            @foreach (var show in allShows.Where(s => !linkedShowIds.Contains(s.ShowId)))
+            {
+                <option value="@show.ShowId">@show.ShowName (@show.Location)</option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Link Show</button>
+</form>
+}
+
+<a asp-action="List" class="btn btn-secondary mt-3">← Back to Publisher List</a>

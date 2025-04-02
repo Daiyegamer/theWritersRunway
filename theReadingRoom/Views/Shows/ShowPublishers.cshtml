@@ -1,0 +1,26 @@
+@model List<AdilBooks.Models.Publisher>
+@{
+    ViewData["Title"] = "Publishers Linked to Show";
+    var showName = ViewBag.ShowName as string ?? "Show";
+    var showId = ViewBag.ShowId as int? ?? 0;
+}
+
+<h2>📺 Publishers Linked to: <strong>@showName</strong></h2>
+
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Publisher Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var publisher in Model)
+        {
+            <tr>
+                <td>@publisher.PublisherName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Shows" asp-action="Index" class="btn btn-outline-secondary mt-3">← Back to Shows</a>
