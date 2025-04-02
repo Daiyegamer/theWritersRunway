@@ -15,5 +15,10 @@ namespace AdilBooks.Interfaces
         Task<ServiceResponse> UpdatePublisher(PublisherDto publisherDto);
 
         Task<ServiceResponse> DeletePublisher(int id);
+        Task<List<Show>> GetShowsByPublisherAsync(int publisherId);
+        Task<bool> LinkShowAsync(int publisherId, int showId);
+        Task<bool> UnlinkShowAsync(int publisherId, int showId);
+        Task<List<Publisher>> GetPublishersByShowAsync(int showId);
+
     }
 }

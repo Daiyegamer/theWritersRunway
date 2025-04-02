@@ -1238,12 +1238,86 @@
   },
   {
     "ContainingType": "AdilBooks.Controllers.PublishersPageController",
+    "Method": "LinkShow",
+    "RelativePath": "Publishers/LinkShow",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "publisherId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "showId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.PublishersPageController",
     "Method": "List",
     "RelativePath": "Publishers/List",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.PublishersPageController",
+    "Method": "ManageShows",
+    "RelativePath": "Publishers/ManageShowsForPublisher/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.PublishersPageController",
+    "Method": "ShowPublishers",
+    "RelativePath": "Publishers/ShowPublishersForShow/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AdilBooks.Controllers.PublishersPageController",
+    "Method": "UnlinkShow",
+    "RelativePath": "Publishers/UnlinkShow",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "publisherId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "showId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -1353,6 +1427,11 @@
       {
         "Name": "Votes",
         "Type": "System.Collections.Generic.ICollection\u00601[[AdilBooks.Models.Vote, AdilBooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PublisherShows",
+        "Type": "System.Collections.Generic.ICollection\u00601[[PublisherShow, AdilBooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       }
     ],
@@ -1494,6 +1573,11 @@
       {
         "Name": "Votes",
         "Type": "System.Collections.Generic.ICollection\u00601[[AdilBooks.Models.Vote, AdilBooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "PublisherShows",
+        "Type": "System.Collections.Generic.ICollection\u00601[[PublisherShow, AdilBooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": false
       }
     ],

@@ -1,24 +1,27 @@
-﻿using AdilBooks.Models;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 
-namespace AdilBooks.Data
+using AdilBooks.Models;
+
+
+namespace AdilBooks.Data 
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        { }
+            : base(options) { }
 
-        // AdilBooks Tables
+        // AdilBooks
         public DbSet<Book> Books { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<BookAuthor> BookAuthors { get; set; }
+        public DbSet<PublisherShow> PublisherShows { get; set; }
 
-        // FashionVote Tables
+
+        // FashionVote
         public DbSet<Participant> Participants { get; set; }
         public DbSet<Designer> Designers { get; set; }
         public DbSet<Show> Shows { get; set; }
@@ -28,12 +31,11 @@ namespace AdilBooks.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); // Ensure Identity configurations are applied
+            base.OnModelCreating(modelBuilder);
 
-            // AdilBooks: Many-to-Many between Books and Authors
-           
+            modelBuilder.Entity<BookAuthor>()
+                .HasKey(ba => ba.BookAuthorId);
 
-            // FashionVote: Many-to-Many between Designer and Show
             modelBuilder.Entity<DesignerShow>()
                 .HasKey(ds => new { ds.DesignerId, ds.ShowId });
 
@@ -47,9 +49,7 @@ namespace AdilBooks.Data
                 .WithMany(s => s.DesignerShows)
                 .HasForeignKey(ds => ds.ShowId);
 
-            // FashionVote: One-to-Many Votes (Participant votes for Designer in a Show)
-            modelBuilder.Entity<Vote>()
-                .HasKey(v => v.VoteId);
+            modelBuilder.Entity<Vote>().HasKey(v => v.VoteId);
 
             modelBuilder.Entity<Vote>()
                 .HasOne(v => v.Participant)
@@ -66,12 +66,10 @@ namespace AdilBooks.Data
                 .WithMany(s => s.Votes)
                 .HasForeignKey(v => v.ShowId);
 
-            // Prevent duplicate votes: One vote per participant-designer-show
             modelBuilder.Entity<Vote>()
                 .HasIndex(v => new { v.ParticipantId, v.DesignerId, v.ShowId })
                 .IsUnique();
 
-            // FashionVote: Many-to-Many for Participant and Shows
             modelBuilder.Entity<ParticipantShow>()
                 .HasKey(ps => new { ps.ParticipantId, ps.ShowId });
 
@@ -83,6 +81,18 @@ namespace AdilBooks.Data
             modelBuilder.Entity<ParticipantShow>()
                 .HasOne(ps => ps.Show)
                 .WithMany(s => s.ParticipantShows)
+                .HasForeignKey(ps => ps.ShowId);
+            modelBuilder.Entity<PublisherShow>()
+        .HasKey(ps => new { ps.PublisherId, ps.ShowId });
+
+            modelBuilder.Entity<PublisherShow>()
+                .HasOne(ps => ps.Publisher)
+                .WithMany(p => p.PublisherShows)
+                .HasForeignKey(ps => ps.PublisherId);
+
+            modelBuilder.Entity<PublisherShow>()
+                .HasOne(ps => ps.Show)
+                .WithMany(s => s.PublisherShows)
                 .HasForeignKey(ps => ps.ShowId);
         }
     }

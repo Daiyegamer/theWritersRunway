@@ -11,6 +11,8 @@ namespace AdilBooks.Models
         //A publisher publishes many books
         
         public ICollection<Book> Books { get; set; }
+
+        public ICollection<PublisherShow> PublisherShows { get; set; }
     }
 
     public class PublisherDto
