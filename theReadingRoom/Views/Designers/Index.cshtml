@@ -32,7 +32,23 @@
             @foreach (var designer in Model)
             {
                 <tr>
-                    <td class="align-middle text-start">@designer.Name</td>
+                    <td class="align-middle text-start">
+                        <strong>@designer.Name</strong><br />
+                        <span class="text-muted">Books:</span>
+                            @if (designer.DesignerBooks?.Any() == true)
+                            {
+                                <ul>
+                                    @foreach (var db in designer.DesignerBooks)
+                                    {
+                                        <li>@db.Book.Title</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <span class="text-muted">No books</span>
+                            }
+                    </td>
                     <td class="align-middle text-end">
                         <a asp-action="Details" asp-route-id="@designer.DesignerId" class="btn btn-info btn-sm view-designer">View</a>
                         @if (User.Identity.IsAuthenticated)
@@ -45,5 +61,12 @@
             }
         </tbody>
     </table>
+
+    <!-- Back to Home -->
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+    </div>
 </div>
 
