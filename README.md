@@ -56,17 +56,69 @@ This project combines two systems:
 
 ## 🎨 Fashion Voting System Module (by Genevieve)
 
-#### ✅ Designers
-- CRUD for Designers
-- Many-to-many link to Books through `DesignerBooks`
-- Book linking/unlinking for each designer
-- View Designer's Books
-- View all Designers associated with a specific Book (on the Book details page)
+### 📚 Book Section 
 
-#### 🛠️ Technical Details
-- `DesignerBooks` junction table with FK to `Designers` and `Books`
-- Model configuration defined in `ApplicationDbContext.OnModelCreating`
-- Manual FK constraints applied after broken migrations
+#### Functional Updates
+- **Linked Designers** now display in the book detail view (`Find.cshtml`)
+  - If designers exist, they are listed.
+  - If none are linked, a message shows: *"No designers linked to this book."*
+- **Designer names in book detail view are now clickable**, routing users to the **Designer Details** page.
+
+#### 🛠️ Technical Changes
+- Modified `Find` action in `BooksPageController` to:
+  - Include linked designers using EF Core joins (`DesignerBooks`)
+  - Populate `LinkedDesigners` in `BookWithAuthorsViewModel`
+- View (`Views/Books/Find.cshtml`) was updated to:
+  - Loop through `Model.LinkedDesigners`
+  - Add an anchor tag that links to `Designers/Details/{id}`
+
+
+
+### Designer Section 
+
+#### Functional Updates
+- **Books can now be assigned to designers** during:
+  - Designer creation
+  - Designer update/edit
+- **Designer details page** now shows:
+  - List of books designed
+  - List of assigned shows
+  - Optional "Remove" button for book (when `ShowRemoveButton` is authenticated by admin)
+- **Designer Index page** updated to:
+  - Show all books linked to each designer
+
+### Technical Changes
+- **Bridging Table: `DesignerBook`**
+  - Created to represent many-to-many relationship between `Designer` and `Book`
+  - Registered in `ApplicationDbContext`
+- **DTO Changes:**
+  - `DesignerCreateDTO` and `DesignerUpdateDTO` updated to include `SelectedBookIds`
+- **Controller Logic:**
+  - `Create` and `Edit` methods in `DesignersController` updated to:
+    - Handle book assignment via `SelectedBookIds`
+    - Save `DesignerBook` entries
+- **DesignerDetailsViewModel:**
+  - Introduced to support complex view needs (Designer + Shows + Books + Remove logic)
+- **Details.cshtml** view for Designer:
+  - Displays list of assigned shows and books
+  - Handles conditional rendering of remove buttons for books
+
+
+### Testing & UX
+
+- Currently no authentication required for user (to be implemented next)
+- Views are functional for all users
+- API is being aligned with controller logic for curl/postman testing
+
+
+### Shows
+- CRUD operations
+- Linked to Publishers, Designers, Participants, and Votes
+
+### Participants & Voting
+- CRUD for Participants
+- Voting logic implemented with unique index on (ParticipantId, DesignerId, ShowId)
+- Views to allow voting per show from participant
 
 ---
 
