@@ -82,6 +82,7 @@ namespace AdilBooks.Data
                 .HasOne(ps => ps.Show)
                 .WithMany(s => s.ParticipantShows)
                 .HasForeignKey(ps => ps.ShowId);
+
             modelBuilder.Entity<PublisherShow>()
         .HasKey(ps => new { ps.PublisherId, ps.ShowId });
 
