@@ -90,7 +90,11 @@
                         @foreach (var designer in Model.LinkedDesigners)
                         {
                             <li class="list-group-item">
-                                <strong>@designer.Name</strong> - <em>@designer.Category</em>
+                                <strong>
+                                    <a asp-controller="Designers" asp-action="Details" asp-route-id="@designer.DesignerId">
+                                        @designer.Name
+                                    </a>
+                                </strong> - <em>@designer.Category</em>
                             </li>
                         }
                     </ul>

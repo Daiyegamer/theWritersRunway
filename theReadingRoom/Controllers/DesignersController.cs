@@ -255,7 +255,7 @@ namespace AdilBooks.Controllers
         /// Displays the details of a designer (Admin Only).
         /// </summary>
         [HttpGet("details/{id}")]
-        [Authorize]
+        // [Authorize]
         public async Task<IActionResult> Details(int id)
         {
             var designer = await _context.Designers
@@ -269,8 +269,9 @@ namespace AdilBooks.Controllers
             {
                 Designer = designer,
                 Books = designer.DesignerBooks.Select(db => db.Book).ToList(),
-                // ShowRemoveButton = User.IsInRole("Admin")
-                ShowRemoveButton = true
+                ShowRemoveButton = User.Identity.IsAuthenticated
+                // ShowRemoveButton = true
+
             };
 
             return View(viewModel);
