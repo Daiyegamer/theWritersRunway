@@ -40,7 +40,7 @@ namespace AdilBooks.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Book", b =>
@@ -69,7 +69,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.BookAuthor", b =>
@@ -88,7 +88,7 @@ namespace AdilBooks.Migrations
 
                     b.HasKey("BookAuthorId");
 
-                    b.ToTable("BookAuthors", (string)null);
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Designer", b =>
@@ -112,7 +112,7 @@ namespace AdilBooks.Migrations
 
                     b.HasKey("DesignerId");
 
-                    b.ToTable("Designers", (string)null);
+                    b.ToTable("Designers");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.DesignerBook", b =>
@@ -127,7 +127,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("DesignerBooks", (string)null);
+                    b.ToTable("DesignerBooks");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.DesignerShow", b =>
@@ -142,7 +142,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("ShowId");
 
-                    b.ToTable("DesignerShows", (string)null);
+                    b.ToTable("DesignerShows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Participant", b =>
@@ -171,7 +171,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("ShowId");
 
-                    b.ToTable("Participants", (string)null);
+                    b.ToTable("Participants");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.ParticipantShow", b =>
@@ -186,7 +186,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("ShowId");
 
-                    b.ToTable("ParticipantShows", (string)null);
+                    b.ToTable("ParticipantShows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Publisher", b =>
@@ -203,7 +203,7 @@ namespace AdilBooks.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Show", b =>
@@ -230,7 +230,7 @@ namespace AdilBooks.Migrations
 
                     b.HasKey("ShowId");
 
-                    b.ToTable("Shows", (string)null);
+                    b.ToTable("Shows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Vote", b =>
@@ -265,7 +265,7 @@ namespace AdilBooks.Migrations
                     b.HasIndex("ParticipantId", "DesignerId", "ShowId")
                         .IsUnique();
 
-                    b.ToTable("Votes", (string)null);
+                    b.ToTable("Votes");
                 });
 
             modelBuilder.Entity("AuthorBook", b =>
@@ -280,7 +280,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("BooksBookId");
 
-                    b.ToTable("AuthorBook", (string)null);
+                    b.ToTable("AuthorBook");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -497,7 +497,7 @@ namespace AdilBooks.Migrations
 
                     b.HasIndex("ShowId");
 
-                    b.ToTable("PublisherShows", (string)null);
+                    b.ToTable("PublisherShows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Book", b =>

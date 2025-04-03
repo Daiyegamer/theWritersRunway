@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdilBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250403011043_RecreateShowsTable")]
-    partial class RecreateShowsTable
+    [Migration("20250403053913_INITIAL")]
+    partial class INITIAL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,6 +116,21 @@ namespace AdilBooks.Migrations
                     b.HasKey("DesignerId");
 
                     b.ToTable("Designers");
+                });
+
+            modelBuilder.Entity("AdilBooks.Models.DesignerBook", b =>
+                {
+                    b.Property<int>("DesignerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DesignerId", "BookId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("DesignerBooks");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.DesignerShow", b =>
@@ -499,6 +514,25 @@ namespace AdilBooks.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("AdilBooks.Models.DesignerBook", b =>
+                {
+                    b.HasOne("AdilBooks.Models.Book", "Book")
+                        .WithMany("DesignerBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdilBooks.Models.Designer", "Designer")
+                        .WithMany("DesignerBooks")
+                        .HasForeignKey("DesignerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Designer");
+                });
+
             modelBuilder.Entity("AdilBooks.Models.DesignerShow", b =>
                 {
                     b.HasOne("AdilBooks.Models.Designer", "Designer")
@@ -658,8 +692,15 @@ namespace AdilBooks.Migrations
                     b.Navigation("Show");
                 });
 
+            modelBuilder.Entity("AdilBooks.Models.Book", b =>
+                {
+                    b.Navigation("DesignerBooks");
+                });
+
             modelBuilder.Entity("AdilBooks.Models.Designer", b =>
                 {
+                    b.Navigation("DesignerBooks");
+
                     b.Navigation("DesignerShows");
 
                     b.Navigation("Votes");
