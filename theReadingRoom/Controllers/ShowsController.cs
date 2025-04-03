@@ -7,6 +7,8 @@ using AdilBooks.Models;
 using AdilBooks.DTOs;
 using System.Linq;
 using System.Threading.Tasks;
+using AdilBooks.ViewModels;
+
 
 namespace AdilBooks.Controllers
 {
@@ -73,6 +75,7 @@ namespace AdilBooks.Controllers
 
             return View(shows);
         }
+
 
 
         /// <summary>
@@ -165,6 +168,8 @@ namespace AdilBooks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Show show)
         {
+            Console.WriteLine("Reached POST /Shows/create");
+
             var userTimeZone = TimeZoneInfo.FindSystemTimeZoneById("America/Toronto"); 
             show.StartTime = TimeZoneInfo.ConvertTimeToUtc(show.StartTime, userTimeZone);
             show.EndTime = TimeZoneInfo.ConvertTimeToUtc(show.EndTime, userTimeZone);
@@ -179,11 +184,34 @@ namespace AdilBooks.Controllers
                 ModelState.AddModelError("EndTime", "The end time must be after the start time.");
             }
 
+            Console.WriteLine($"ModelState.IsValid: {ModelState.IsValid}");
+
             if (!ModelState.IsValid)
+            {
+                Console.WriteLine("Model validation failed. Errors:");
+                foreach (var kvp in ModelState)
+                {
+                    var key = kvp.Key;
+                    var errors = kvp.Value.Errors;
+                    foreach (var error in errors)
+                    {
+                        Console.WriteLine($"Field: {key} - Error: {error.ErrorMessage}");
+                    }
+                }
+
                 return View(show);
+            }
+
+            Console.WriteLine($"ShowName: {show.ShowName}");
+            Console.WriteLine($"Location: {show.Location}");
+            Console.WriteLine($"StartTime: {show.StartTime}");
+            Console.WriteLine($"EndTime: {show.EndTime}");
+
 
             _context.Add(show);
             await _context.SaveChangesAsync();
+            Console.WriteLine("Show created successfully.");
+
             TempData["SuccessMessage"] = "Show added successfully!";
             return RedirectToAction(nameof(AdminIndex));
         }
@@ -256,7 +284,10 @@ namespace AdilBooks.Controllers
         {
             var show = await _context.Shows
                 .Include(s => s.DesignerShows)
-                .ThenInclude(ds => ds.Designer)
+                    .ThenInclude(ds => ds.Designer)
+                .Include(s => s.Participants)
+                .Include(s => s.PublisherShows)
+                    .ThenInclude(ps => ps.Publisher)
                 .FirstOrDefaultAsync(s => s.ShowId == id);
 
             if (show == null)
@@ -267,6 +298,8 @@ namespace AdilBooks.Controllers
 
             return View(show);
         }
+
+
 
 
 

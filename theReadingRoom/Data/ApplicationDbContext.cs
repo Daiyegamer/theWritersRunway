@@ -28,6 +28,7 @@ namespace AdilBooks.Data
         public DbSet<DesignerShow> DesignerShows { get; set; }
         public DbSet<Vote> Votes { get; set; }
         public DbSet<ParticipantShow> ParticipantShows { get; set; }
+        public DbSet<DesignerBook> DesignerBooks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -95,6 +96,20 @@ namespace AdilBooks.Data
                 .HasOne(ps => ps.Show)
                 .WithMany(s => s.PublisherShows)
                 .HasForeignKey(ps => ps.ShowId);
+
+            // Designer Book Model
+            modelBuilder.Entity<DesignerBook>()
+                .HasKey(db => new { db.DesignerId, db.BookId });
+
+            modelBuilder.Entity<DesignerBook>()
+                .HasOne(db => db.Designer)
+                .WithMany(d => d.DesignerBooks)
+                .HasForeignKey(db => db.DesignerId);
+
+            modelBuilder.Entity<DesignerBook>()
+                .HasOne(db => db.Book)
+                .WithMany(b => b.DesignerBooks)
+                .HasForeignKey(db => db.BookId);
         }
     }
 }

@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using AdilBooks.Models.ViewModels;
+using AdilBooks.Data;
 
 
 namespace AdilBooks.Controllers
@@ -15,11 +18,13 @@ namespace AdilBooks.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IAuthorService _authorService;
+        private readonly ApplicationDbContext _context;
 
-        public BooksPageController(IBookService bookService, IAuthorService authorService, IPublisherService publisherService)
+        public BooksPageController(IBookService bookService, IAuthorService authorService, IPublisherService publisherService, ApplicationDbContext context)
         {
             _bookService = bookService;
             _authorService = authorService;  // Initialize _authorService
+            _context = context;
         }
 
         // GET: Books/List
@@ -32,36 +37,32 @@ namespace AdilBooks.Controllers
 
         // GET: Books/Find/{id}
        [HttpGet("Find/{id}")]
-public async Task<IActionResult> Find(int id)
-{
-    var book = await _bookService.FindBook(id);
-    if (book == null)
-    {
-        return View("Error", new ErrorViewModel { Errors = new List<string> { "Book not found." } });
-    }
+        public async Task<IActionResult> Find(int id)
+        {
+            var book = await _bookService.FindBook(id);
+            if (book == null)
+            {
+                return View("Error", new ErrorViewModel { Errors = new List<string> { "Book not found." } });
+            }
 
-    // Assume _authorService.ListAuthors() returns IEnumerable<AuthorListDto>
-    var availableAuthors = (await _authorService.ListAuthors()).ToList();
-    
-    // Here, you may need to differentiate between linked and available authors.
-    // For simplicity, assume all authors in your DTO are linked.
-    // You could map the book's linked authors if your BookDto had such a property.
-    // For now, we'll assume your BookDto has a list of linked author names,
-    // so you might need to convert those names to AuthorListDto objects (if possible).
+            var availableAuthors = (await _authorService.ListAuthors()).ToList();
 
-    var linkedAuthors = new List<AuthorListDto>(); // You'd populate this with real data.
-    // For example, if your BookDto had a list of linked author IDs, you could look them up.
-    // Otherwise, you may need to adjust your DTOs.
+            var linkedDesigners = await _context.DesignerBooks
+                .Where(db => db.BookId == id)
+                .Include(db => db.Designer)
+                .Select(db => db.Designer)
+                .ToListAsync();
 
-    var model = new AdilBooks.Models.ViewModels.BookWithAuthorsViewModel
-    {
-        Book = book,
-        AvailableAuthors = availableAuthors,
-        LinkedAuthors = linkedAuthors
-    };
+            var model = new BookWithAuthorsViewModel
+            {
+                Book = book,
+                AvailableAuthors = availableAuthors,
+                LinkedAuthors = new List<AuthorListDto>(), 
+                LinkedDesigners = linkedDesigners 
+            };
 
-    return View(model);
-}
+            return View(model);
+        }
 
 
 
