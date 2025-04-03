@@ -74,7 +74,7 @@ This project combines two systems:
 
 
 
-### Designer Section 
+### 👗 Designer Section 
 
 #### Functional Updates
 - **Books can now be assigned to designers** during:
