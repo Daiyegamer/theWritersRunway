@@ -8,5 +8,7 @@ namespace AdilBooks.Models.ViewModels
         public BookDto Book { get; set; }
         public List<AuthorListDto> AvailableAuthors { get; set; }
         public List<AuthorListDto> LinkedAuthors { get; set; } // authors already linked to the book
+        public List<Designer> LinkedDesigners { get; set; } = new(); 
+
     }
 }

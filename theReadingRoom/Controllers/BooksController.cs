@@ -11,11 +11,13 @@ namespace AdilBooks.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
+        private readonly ApplicationDbContext _context;
 
         // Dependency Injection
-        public BooksController(IBookService bookService)
+        public BooksController(IBookService bookService, ApplicationDbContext context)
         {
             _bookService = bookService;
+            _context = context;
         }
 
         [HttpGet("List")]
@@ -28,29 +30,37 @@ namespace AdilBooks.Controllers
         [HttpGet("Find/{id}")]
         public async Task<IActionResult> FindBook(int id)
         {
-            var book = await _bookService.FindBook(id);
+            var book = await _context.Books
+                .Include(b => b.Authors)
+                .Include(b => b.Publisher)
+                .Include(b => b.DesignerBooks)
+                    .ThenInclude(db => db.Designer)
+                .FirstOrDefaultAsync(b => b.BookId == id);
+
             if (book == null)
             {
                 return NotFound(new { error = "NotFound", message = "Book not found." });
             }
-            return Ok(new { message = "Book retrieved successfully.", data = book });
+
+            var bookDto = new BookDto
+            {
+                BookId = book.BookId,
+                Title = book.Title,
+                Year = book.Year,
+                Synopsis = book.Synopsis,
+                PublisherName = book.Publisher?.PublisherName,
+                AuthorNames = book.Authors?.Select(a => a.Name).ToList(),
+                LinkedDesigners = book.DesignerBooks?.Select(db => new DesignerInfoDto
+                {
+                    DesignerId = db.Designer.DesignerId,
+                    Name = db.Designer.Name,
+                    Category = db.Designer.Category
+                }).ToList() ?? new List<DesignerInfoDto>()
+            };
+
+            return Ok(new { message = "Book retrieved successfully.", data = bookDto });
         }
 
-        [HttpPut("Update")]
-        public async Task<IActionResult> UpdateBook(UpdateBookDto updateBookDto)
-        {
-            var response = await _bookService.UpdateBook(updateBookDto);
-            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
-            {
-                return NotFound(new { error = "NotFound", message = response.Messages });
-            }
-            else if (response.Status == ServiceResponse.ServiceStatus.Error)
-            {
-                return StatusCode(500, new { error = "InternalServerError", message = response.Messages });
-            }
-
-            return NoContent();
-        }
 
         [HttpPost("Add")]
         public async Task<IActionResult> AddBook(AddBookDto addBookDto)

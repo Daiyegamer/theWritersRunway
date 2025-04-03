@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using AdilBooks.Data; // Keep this for now
+using AdilBooks.Models;
+using Microsoft.AspNetCore.Mvc;
 
 // Service interfaces and implementations
 using AdilBooks.Services;
@@ -79,7 +81,8 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// ✅ Role/User Seeding Logic
+
+// Role/User Seeding Logic
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -91,6 +94,17 @@ using (var scope = app.Services.CreateScope())
 
     string adminEmail = "admin@fashionvote.com";
     string adminPassword = "Admin@123";
+
+    // Seed test participant if not exists
+    if (!dbContext.Participants.Any(p => p.Email == "luis@gmail.com"))
+    {
+        dbContext.Participants.Add(new Participant
+        {
+            Name = "Test User",
+            Email = "luis@gmail.com"
+        });
+        dbContext.SaveChanges();
+    }
 
     if (!await roleManager.RoleExistsAsync("Admin"))
         await roleManager.CreateAsync(new IdentityRole("Admin"));
@@ -108,7 +122,7 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// ✅ Middleware Pipeline
+// Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -132,7 +146,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ✅ Routes
+// Routes
 app.MapRazorPages();
 app.MapControllers();
 
@@ -155,7 +169,7 @@ app.MapControllerRoute(
     pattern: "Publishers/{action=List}/{id?}",
     defaults: new { controller = "PublishersPage" });
 
-// ✅ SignalR (for FashionVote)
+// SignalR (for FashionVote)
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");

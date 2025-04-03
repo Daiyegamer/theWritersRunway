@@ -36,7 +36,7 @@
                 <td>@show.StartTime.ToString("g")</td>
                 <td>@show.EndTime.ToString("g")</td>
                 <td>
-                    @if (!User.Identity.IsAuthenticated)
+                    @* @if (!User.Identity.IsAuthenticated)
                     {
                         <a asp-area="Identity" asp-page="/Account/Register"
                            asp-route-returnUrl="@Url.Action("Register", "Shows", new { showId = show.ShowId })"
@@ -44,9 +44,6 @@
                     }
                     else if (User.IsInRole("Participant"))
                     {
-                        // Convert the show's EndTime to local time for accurate comparison
-                        @* var localEndTime = TimeZoneInfo.ConvertTimeFromUtc(show.EndTime,            TimeZoneInfo.FindSystemTimeZoneById("America/Toronto")); *@
-        
                         if (DateTime.Now > show.EndTime)
                         {
                             <span class="badge bg-danger">Event Passed</span>
@@ -66,13 +63,32 @@
                             </form>
 
                         }
+                    } *@
+                    @if (DateTime.Now > show.EndTime)
+                    {
+                        <span class="badge bg-danger">Event Passed</span>
                     }
-                    else if (User.IsInRole("Admin"))
+                    else if (isRegistered)
+                    {
+                        <span class="badge bg-success">Registered</span>
+                    }
+                    else
+                    {
+                        <form asp-action="Register"
+                            asp-controller="Shows"
+                            asp-route-showId="@show.ShowId"
+                            method="post">
+                            <input type="hidden" name="showId" value="@show.ShowId" />
+                            <button type="submit" class="btn btn-primary btn-sm register-show-btn">Register</button>
+                        </form>
+                    }
+
+                    @* else if (User.IsInRole("Admin"))
                     {
                         <a asp-action="Details" asp-route-id="@show.ShowId" class="btn btn-info btn-sm view-show">View</a>
                         <a asp-action="Edit" asp-route-id="@show.ShowId" class="btn btn-secondary btn-sm edit-designer">Edit</a>
                         <a asp-action="Delete" asp-route-id="@show.ShowId" class="btn btn-danger btn-sm">Delete</a>
-                    }
+                    } *@
                 </td>
             </tr>
         }

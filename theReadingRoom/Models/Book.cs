@@ -36,6 +36,8 @@ namespace AdilBooks.Models
         public List<ListAuthorDto> LinkedAuthors { get; set; } = new List<ListAuthorDto>();
         public string PublisherName { get; set; }
         public string Synopsis { get; set; }
+        public List<DesignerInfoDto> LinkedDesigners { get; set; } = new();
+
 
     }
     public class BookListDto

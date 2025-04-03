@@ -80,7 +80,15 @@ namespace AdilBooks.Controllers
         //[Authorize(Roles = "Participant")]
         public async Task<IActionResult> MyShows()
         {
-            var userEmail = User.Identity.Name;
+            // var userEmail = User.Identity.Name; // change back to authenticated user
+
+            string userEmail = User.Identity?.Name;
+
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                userEmail = "luis@gmail.com"; 
+            }
+
             var participant = await _context.Participants
                 .Include(p => p.ParticipantShows)
                 .ThenInclude(ps => ps.Show)
@@ -104,7 +112,16 @@ namespace AdilBooks.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(int showId)
         {
-            var userEmail = User.Identity.Name;
+            // var userEmail = User.Identity.Name;
+
+            string userEmail = User.Identity?.Name;
+
+            // Fallback for unauthenticated testing
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                userEmail = "luis@gmail.com"; 
+            }
+
             var participant = await _context.Participants
                 .Include(p => p.ParticipantShows)
                 .FirstOrDefaultAsync(p => p.Email == userEmail);

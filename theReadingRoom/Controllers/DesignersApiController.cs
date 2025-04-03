@@ -39,8 +39,8 @@ namespace AdilBooks.Controllers.Api
         public async Task<IActionResult> GetDesigners()
         {
             var designers = await _context.Designers
-                .Include(d => d.DesignerShows)
-                .ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerShows).ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerBooks).ThenInclude(db => db.Book)
                 .ToListAsync();
 
             return Ok(designers.Select(d => new DesignerDTO(d)));
@@ -64,8 +64,8 @@ namespace AdilBooks.Controllers.Api
         public async Task<IActionResult> GetDesignerDetails(int id)
         {
             var designer = await _context.Designers
-                .Include(d => d.DesignerShows)
-                .ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerShows).ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerBooks).ThenInclude(db => db.Book)
                 .FirstOrDefaultAsync(d => d.DesignerId == id);
 
             if (designer == null)
@@ -122,6 +122,20 @@ namespace AdilBooks.Controllers.Api
                 await _context.SaveChangesAsync();
             }
 
+            if (designerDto.SelectedBookIds != null && designerDto.SelectedBookIds.Any())
+            {
+                foreach (var bookId in designerDto.SelectedBookIds)
+                {
+                    _context.DesignerBooks.Add(new DesignerBook
+                    {
+                        DesignerId = designer.DesignerId,
+                        BookId = bookId
+                    });
+                }
+                await _context.SaveChangesAsync();
+            }
+
+
             return CreatedAtAction(nameof(GetDesignerDetails), new { id = designer.DesignerId }, new { message = "Designer created successfully!", designerId = designer.DesignerId });
         }
 
@@ -171,6 +185,25 @@ namespace AdilBooks.Controllers.Api
                 });
             }
 
+            // Remove old book links
+            var existingBookLinks = await _context.DesignerBooks
+                .Where(db => db.DesignerId == id).ToListAsync();
+            _context.DesignerBooks.RemoveRange(existingBookLinks);
+
+            // Add new book links
+            if (designerDto.SelectedBookIds != null && designerDto.SelectedBookIds.Any())
+            {
+                foreach (var bookId in designerDto.SelectedBookIds)
+                {
+                    _context.DesignerBooks.Add(new DesignerBook
+                    {
+                        DesignerId = designer.DesignerId,
+                        BookId = bookId
+                    });
+                }
+            }
+
+
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Designer updated successfully!" });
@@ -202,6 +235,11 @@ namespace AdilBooks.Controllers.Api
 
             _context.DesignerShows.RemoveRange(designer.DesignerShows);
             _context.Designers.Remove(designer);
+
+            _context.DesignerBooks.RemoveRange(
+                await _context.DesignerBooks.Where(db => db.DesignerId == id).ToListAsync()
+            );
+
             await _context.SaveChangesAsync();
 
             return Ok(new { message = "Designer deleted successfully." });

@@ -182,7 +182,7 @@ namespace AdilBooks.Controllers
                 });
             }
 
-            // 🔥 ADD THIS: Remove & reassign books
+            // ADD THIS: Remove & reassign books
             var existingBookLinks = await _context.DesignerBooks
                 .Where(db => db.DesignerId == id)
                 .ToListAsync();
@@ -286,7 +286,8 @@ namespace AdilBooks.Controllers
             {
                 Designer = designer,
                 Books = designer.DesignerBooks.Select(db => db.Book).ToList(),
-                ShowRemoveButton = User.IsInRole("Admin")
+                // ShowRemoveButton = User.IsInRole("Admin")
+                ShowRemoveButton = true
             };
 
             return View(viewModel);
