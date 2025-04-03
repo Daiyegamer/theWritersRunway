@@ -21,8 +21,8 @@ namespace AdilBooks.Models
 
         public virtual Publisher Publisher { get; set; }
 
-
         public virtual ICollection<Author>? Authors { get; set; }
+        public ICollection<DesignerBook> DesignerBooks { get; set; } = new List<DesignerBook>();
     }
     public class BookDto
     {
@@ -33,6 +33,7 @@ namespace AdilBooks.Models
         public List<ListAuthorDto> LinkedAuthors { get; set; } = new List<ListAuthorDto>();
         public string PublisherName { get; set; }
         public string Synopsis { get; set; }
+        public List<DesignerInfoDto> LinkedDesigners { get; set; } = new();
 
     }
     public class BookListDto

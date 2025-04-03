@@ -3,6 +3,8 @@
     ViewData["Title"] = "Manage Shows";
 }
 
+
+
 <h1>Manage Shows</h1>
 
 @if (TempData["SuccessMessage"] != null)
@@ -37,11 +39,19 @@
                 <td>@show.StartTime.ToString("g")</td>
                 <td>@show.EndTime.ToString("g")</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@show.ShowId" class="btn btn-secondary btn-sm">Edit</a>
-                    <a asp-action="Delete" asp-controller="Shows" asp-route-id="@show.ShowId" class="btn btn-danger btn-sm">Delete</a>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-action="Edit" asp-route-id="@show.ShowId" class="btn btn-secondary btn-sm">Edit</a>
+                        <a asp-action="Delete" asp-controller="Shows" asp-route-id="@show.ShowId" class="btn btn-danger btn-sm">Delete</a>
+                    }
                     <a asp-action="ShowVotes" asp-controller="Votes" asp-route-showId="@show.ShowId" class="btn btn-info btn-sm view-votes">View Votes</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<div class="text-center mt-4">
+    <a href="/" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+</div>

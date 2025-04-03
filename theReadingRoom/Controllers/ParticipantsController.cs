@@ -43,6 +43,7 @@ namespace AdilBooks.Controllers
         /// Displays the edit form for a participant (Admin Only).
         /// </summary>
         [HttpGet("edit/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
@@ -65,6 +66,7 @@ namespace AdilBooks.Controllers
         /// Handles form submission for updating a participant (Admin Only).
         /// </summary>
         [HttpPost("edit/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [FromForm] ParticipantUpdateDTO participantDto)
@@ -101,7 +103,8 @@ namespace AdilBooks.Controllers
         /// Displays the delete confirmation page for a participant (Admin Only).
         /// </summary>
         [HttpGet("delete/{id}")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var participant = await _context.Participants
@@ -120,6 +123,7 @@ namespace AdilBooks.Controllers
         /// Handles the form submission to delete a participant (Admin Only).
         /// </summary>
         [HttpPost("delete/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

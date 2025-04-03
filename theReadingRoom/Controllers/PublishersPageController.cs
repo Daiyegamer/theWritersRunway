@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AdilBooks.Data;
 using Microsoft.AspNetCore.Authorization;
+using AdilBooks.Models.DTOs;
 
 namespace AdilBooks.Controllers
 {
@@ -163,5 +164,50 @@ namespace AdilBooks.Controllers
             TempData["SuccessMessage"] = "Publisher deleted successfully!";
             return RedirectToAction("List");
         }
+
+        [HttpGet("ManageShowsForPublisher/{id}")]
+        public async Task<IActionResult> ManageShows(int id)
+        {
+            var shows = await _publisherService.GetShowsByPublisherAsync(id);
+            var allShows = await _context.Shows.ToListAsync();
+            var publisher = await _context.Publishers.FindAsync(id);
+
+            ViewBag.PublisherId = id;
+            ViewBag.AllShows = allShows;
+            ViewBag.PublisherName = publisher?.PublisherName ?? "No Publisher Associated";
+
+            return View(shows);
+        }
+
+        [Authorize]
+        [HttpPost("LinkShow")]
+        public async Task<IActionResult> LinkShow(int publisherId, int showId)
+        {
+            var result = await _publisherService.LinkShowAsync(publisherId, showId);
+             TempData["Message"] = result ? "Show linked." : "Already linked.";
+            return RedirectToAction("ManageShows", new { id = publisherId });
+            //return Ok(new { message = result ? "Show linked." : "Already linked." }); // ✅ For Swagger testing
+        }
+
+        [Authorize]
+        [HttpPost("UnlinkShow")]
+        public async Task<IActionResult> UnlinkShow(int publisherId, int showId)
+        {
+            await _publisherService.UnlinkShowAsync(publisherId, showId);
+            TempData["Message"] = "Show unlinked.";
+             return RedirectToAction("ManageShows", new { id = publisherId });
+            //return Ok(new { message = "Show unlinked." }); // ✅ For Swagger testing
+        }
+
+        [HttpGet("ShowPublishersForShow/{id}")]
+        public async Task<IActionResult> ShowPublishers(int id)
+        {
+            var publishers = await _publisherService.GetPublishersByShowAsync(id);
+            ViewBag.ShowId = id;
+            return View(publishers);
+            //return Ok(publishers); // ✅ For Swagger testing
+        }
+
+
     }
 }

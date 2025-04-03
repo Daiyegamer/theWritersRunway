@@ -11,38 +11,42 @@ using AdilBooks.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Setup SQL Server connection string
+// Setup SQL Server connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+  //  options.UseSqlite(connectionString)); 
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// ✅ Identity + Roles
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+// Identity + Roles
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders()
-.AddRoles<IdentityRole>();
+.AddDefaultUI();
 
-// ✅ Core MVC + Razor + SignalR
+//.AddRoles<IdentityRole>();
+
+// Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
 
-// ✅ Book Domain Services
+// Book Domain Services
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
 
-// ✅ FashionVote Services
+// FashionVote Services
 //builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
-// ✅ Swagger
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -77,36 +81,36 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// ✅ Role/User Seeding Logic
+// Role/User Seeding Logic
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
+    //dbContext.Database.Migrate();
 
-    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
-    string adminEmail = "admin@fashionvote.com";
-    string adminPassword = "Admin@123";
+    //string adminEmail = "admin@fashionvote.com";
+    //string adminPassword = "Admin@123";
 
-    if (!await roleManager.RoleExistsAsync("Admin"))
-        await roleManager.CreateAsync(new IdentityRole("Admin"));
+    //if (!await roleManager.RoleExistsAsync("Admin"))
+    //    await roleManager.CreateAsync(new IdentityRole("Admin"));
 
-    if (!await roleManager.RoleExistsAsync("Participant"))
-        await roleManager.CreateAsync(new IdentityRole("Participant"));
+    //if (!await roleManager.RoleExistsAsync("Participant"))
+    //    await roleManager.CreateAsync(new IdentityRole("Participant"));
 
-    var adminUser = await userManager.FindByEmailAsync(adminEmail);
-    if (adminUser == null)
-    {
-        adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
-        var result = await userManager.CreateAsync(adminUser, adminPassword);
-        if (result.Succeeded)
-            await userManager.AddToRoleAsync(adminUser, "Admin");
-    }
+    //var adminUser = await userManager.FindByEmailAsync(adminEmail);
+    //if (adminUser == null)
+    //{
+    //    adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+    //    var result = await userManager.CreateAsync(adminUser, adminPassword);
+    //    if (result.Succeeded)
+    //        await userManager.AddToRoleAsync(adminUser, "Admin");
+    //}
 }
 
-// ✅ Middleware Pipeline
+// Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -130,7 +134,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ✅ Routes
 app.MapRazorPages();
 app.MapControllers();
 
@@ -153,7 +156,7 @@ app.MapControllerRoute(
     pattern: "Publishers/{action=List}/{id?}",
     defaults: new { controller = "PublishersPage" });
 
-// ✅ SignalR (for FashionVote)
+// SignalR (for FashionVote)
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");

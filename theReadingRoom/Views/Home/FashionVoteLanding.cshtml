@@ -1,0 +1,89 @@
+@{
+    ViewData["Title"] = "FashionVote Hub";
+}
+
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="jumbotron text-center bg-light p-5 rounded shadow-sm">
+        <h1 class="display-4 text-danger">👗 Welcome to Fashion Voting System</h1>
+        <p class="lead text-muted">
+            Discover, register, and participate in exciting fashion shows!
+            Vote for your favorite designers and help shape the future of fashion.
+        </p>
+        <hr class="my-4" />
+        <p>
+            Whether you're an organizer, a participant, or a fashion enthusiast,
+            our platform connects you with the best events and designers in the industry.
+        </p>
+    </div>
+
+    <!-- Navigation Section -->
+    <div class="row text-center mt-4">
+        <div class="col-md-3">
+            <div class="card shadow border-primary">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">🎨 Designers</h5>
+                    <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-primary">Browse Designers</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Designers</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow border-success">
+                <div class="card-body">
+                    <h5 class="card-title text-success">🧵 Participants</h5>
+                    <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-success">Browse Participants</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Participants</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow border-warning">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">📅 Shows</h5>
+                    <a asp-controller="Shows" asp-action="Index" class="btn btn-outline-warning mb-2">Browse Shows</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Shows" asp-action="AdminIndex" class="btn btn-outline-dark mt-1">Manage Shows</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow border-danger">
+                <div class="card-body">
+                    <h5 class="card-title text-danger">🗳️ Voting</h5>
+                    <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-danger">Vote Summary</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Votes</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <!-- CTA for Users -->
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="text-center mt-5">
+            <h3>Join FashionVote Today!</h3>
+            <p class="lead text-muted">Create an account to register shows and vote for designers.</p>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-danger btn-lg">
+                <i class="fas fa-user-plus"></i> Sign Up Now
+            </a>
+        </div>
+    }
+</div>
+

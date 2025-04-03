@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdilBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250325213019_updateDTOcontAppDb")]
-    partial class updateDTOcontAppDb
+    [Migration("20250403053913_INITIAL")]
+    partial class INITIAL
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,6 +116,21 @@ namespace AdilBooks.Migrations
                     b.HasKey("DesignerId");
 
                     b.ToTable("Designers");
+                });
+
+            modelBuilder.Entity("AdilBooks.Models.DesignerBook", b =>
+                {
+                    b.Property<int>("DesignerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.HasKey("DesignerId", "BookId");
+
+                    b.HasIndex("BookId");
+
+                    b.ToTable("DesignerBooks");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.DesignerShow", b =>
@@ -416,10 +431,12 @@ namespace AdilBooks.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -456,10 +473,12 @@ namespace AdilBooks.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -467,6 +486,21 @@ namespace AdilBooks.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("PublisherShow", b =>
+                {
+                    b.Property<int>("PublisherId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShowId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PublisherId", "ShowId");
+
+                    b.HasIndex("ShowId");
+
+                    b.ToTable("PublisherShows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Book", b =>
@@ -478,6 +512,25 @@ namespace AdilBooks.Migrations
                         .IsRequired();
 
                     b.Navigation("Publisher");
+                });
+
+            modelBuilder.Entity("AdilBooks.Models.DesignerBook", b =>
+                {
+                    b.HasOne("AdilBooks.Models.Book", "Book")
+                        .WithMany("DesignerBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdilBooks.Models.Designer", "Designer")
+                        .WithMany("DesignerBooks")
+                        .HasForeignKey("DesignerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Designer");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.DesignerShow", b =>
@@ -620,8 +673,34 @@ namespace AdilBooks.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("PublisherShow", b =>
+                {
+                    b.HasOne("AdilBooks.Models.Publisher", "Publisher")
+                        .WithMany("PublisherShows")
+                        .HasForeignKey("PublisherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AdilBooks.Models.Show", "Show")
+                        .WithMany("PublisherShows")
+                        .HasForeignKey("ShowId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Publisher");
+
+                    b.Navigation("Show");
+                });
+
+            modelBuilder.Entity("AdilBooks.Models.Book", b =>
+                {
+                    b.Navigation("DesignerBooks");
+                });
+
             modelBuilder.Entity("AdilBooks.Models.Designer", b =>
                 {
+                    b.Navigation("DesignerBooks");
+
                     b.Navigation("DesignerShows");
 
                     b.Navigation("Votes");
@@ -637,6 +716,8 @@ namespace AdilBooks.Migrations
             modelBuilder.Entity("AdilBooks.Models.Publisher", b =>
                 {
                     b.Navigation("Books");
+
+                    b.Navigation("PublisherShows");
                 });
 
             modelBuilder.Entity("AdilBooks.Models.Show", b =>
@@ -646,6 +727,8 @@ namespace AdilBooks.Migrations
                     b.Navigation("ParticipantShows");
 
                     b.Navigation("Participants");
+
+                    b.Navigation("PublisherShows");
 
                     b.Navigation("Votes");
                 });

@@ -7,10 +7,10 @@ using AdilBooks.Models;
 using AdilBooks.Models.DTOs;
 using System.Linq;
 using System.Threading.Tasks;
+using AdilBooks.Models.ViewModels;
 
 namespace AdilBooks.Controllers
 {
-    //[Authorize]
     [Route("designers")]
     public class DesignersController : Controller
     {
@@ -30,8 +30,8 @@ namespace AdilBooks.Controllers
         public async Task<IActionResult> Index()
         {
             var designers = await _context.Designers
-                .Include(d => d.DesignerShows)
-                .ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerShows).ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerBooks).ThenInclude(db => db.Book)
                 .ToListAsync();
 
             return View("Index", designers);
@@ -42,6 +42,8 @@ namespace AdilBooks.Controllers
         /// <summary>
         /// Displays the form to create a new designer (Admin Only).
         /// </summary>
+        /// 
+        [Authorize]
         [HttpGet("create")]
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create()
@@ -51,6 +53,8 @@ namespace AdilBooks.Controllers
                 .OrderBy(s => s.StartTime)
                 .ToListAsync();
 
+            ViewBag.Books = await _context.Books.ToListAsync();
+
             return View();
         }
 
@@ -59,6 +63,7 @@ namespace AdilBooks.Controllers
         /// <summary>
         /// Handles form submission for creating a new designer (Admin Only).
         /// </summary>
+        [Authorize]
         [HttpPost("create")]
        // [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
@@ -92,6 +97,19 @@ namespace AdilBooks.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            if (designerDto.SelectedBookIds != null && designerDto.SelectedBookIds.Any())
+            {
+                foreach (var bookId in designerDto.SelectedBookIds)
+                {
+                    _context.Add(new DesignerBook
+                    {
+                        DesignerId = designer.DesignerId,
+                        BookId = bookId
+                    });
+                }
+                await _context.SaveChangesAsync();
+            }
+
             TempData["SuccessMessage"] = "Designer added successfully!";
             return RedirectToAction(nameof(Index));
         }
@@ -101,7 +119,9 @@ namespace AdilBooks.Controllers
         /// <summary>
         /// Displays the edit form for a designer (Admin Only).
         /// </summary>
+        /// 
         [HttpGet("edit/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
@@ -121,6 +141,9 @@ namespace AdilBooks.Controllers
             };
 
             ViewBag.ShowList = new MultiSelectList(_context.Shows, "ShowId", "ShowName", designerDto.SelectedShowIds);
+
+            ViewBag.BookList = new MultiSelectList(_context.Books, "BookId", "Title", designerDto.SelectedBookIds);
+
             return View(designerDto); 
         }
 
@@ -130,6 +153,7 @@ namespace AdilBooks.Controllers
         /// Updates a designer's details (Admin Only).
         /// </summary>
         [HttpPost("edit/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [FromForm] DesignerUpdateDTO designerDto)
@@ -155,6 +179,25 @@ namespace AdilBooks.Controllers
                 });
             }
 
+            // Remove & reassign books 
+            var existingBookLinks = await _context.DesignerBooks
+                .Where(db => db.DesignerId == id)
+                .ToListAsync();
+
+            _context.DesignerBooks.RemoveRange(existingBookLinks);
+
+            if (designerDto.SelectedBookIds != null && designerDto.SelectedBookIds.Any())
+            {
+                foreach (var bookId in designerDto.SelectedBookIds)
+                {
+                    _context.DesignerBooks.Add(new DesignerBook
+                    {
+                        DesignerId = designer.DesignerId,
+                        BookId = bookId
+                    });
+                }
+            }
+
             await _context.SaveChangesAsync();
             TempData["SuccessMessage"] = "Designer updated successfully!";
             return RedirectToAction(nameof(Index));
@@ -166,6 +209,7 @@ namespace AdilBooks.Controllers
         /// Displays the delete confirmation page for a designer (Admin Only).
         /// </summary>
         [HttpGet("delete/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -185,6 +229,7 @@ namespace AdilBooks.Controllers
         /// Handles the form submission to delete a designer (Admin Only).
         /// </summary>
         [HttpPost("delete/{id}")]
+        [Authorize]
         //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -210,17 +255,44 @@ namespace AdilBooks.Controllers
         /// Displays the details of a designer (Admin Only).
         /// </summary>
         [HttpGet("details/{id}")]
-        //[Authorize(Roles = "Admin")]
+        // [Authorize]
         public async Task<IActionResult> Details(int id)
         {
             var designer = await _context.Designers
-                .Include(d => d.DesignerShows)
-                .ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerShows).ThenInclude(ds => ds.Show)
+                .Include(d => d.DesignerBooks).ThenInclude(db => db.Book)
                 .FirstOrDefaultAsync(d => d.DesignerId == id);
 
             if (designer == null) return NotFound();
 
-            return View(designer);
+            var viewModel = new DesignerDetailsViewModel
+            {
+                Designer = designer,
+                Books = designer.DesignerBooks.Select(db => db.Book).ToList(),
+                ShowRemoveButton = User.Identity.IsAuthenticated
+                // ShowRemoveButton = true
+
+            };
+
+            return View(viewModel);
+        }
+
+
+        [HttpPost("remove-book")]
+         [Authorize]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoveBook(int designerId, int bookId)
+        {
+            var entry = await _context.Set<DesignerBook>()
+                .FirstOrDefaultAsync(db => db.DesignerId == designerId && db.BookId == bookId);
+
+            if (entry != null)
+            {
+                _context.Set<DesignerBook>().Remove(entry);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Details), new { id = designerId });
         }
     }
 }

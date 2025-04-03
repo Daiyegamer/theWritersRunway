@@ -79,6 +79,32 @@
                     }
                 </div>
             </div>
+
+            <!-- Designers Linked to Book -->
+            <div class="mt-4">
+                <h4 class="text-secondary">Linked Designers</h4>
+
+                @if (Model.LinkedDesigners != null && Model.LinkedDesigners.Any())
+                {
+                    <ul class="list-group">
+                        @foreach (var designer in Model.LinkedDesigners)
+                        {
+                            <li class="list-group-item">
+                                <strong>
+                                    <a asp-controller="Designers" asp-action="Details" asp-route-id="@designer.DesignerId">
+                                        @designer.Name
+                                    </a>
+                                </strong> - <em>@designer.Category</em>
+                            </li>
+                        }
+                    </ul>
+
+                }
+                else
+                {
+                    <p class="text-muted">No designers linked to this book.</p>
+                }
+            </div>
         </div>
     </div>
 

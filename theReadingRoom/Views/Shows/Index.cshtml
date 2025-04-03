@@ -36,38 +36,42 @@
                 <td>@show.StartTime.ToString("g")</td>
                 <td>@show.EndTime.ToString("g")</td>
                 <td>
+                    <a asp-action="Details"
+                    asp-controller="Shows"
+                    asp-route-id="@show.ShowId"
+                    class="btn btn-info btn-sm me-2">View Details</a>
+                    
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <a asp-area="Identity" asp-page="/Account/Register"
                            asp-route-returnUrl="@Url.Action("Register", "Shows", new { showId = show.ShowId })"
                            class="btn btn-primary btn-sm">Register</a>
                     }
-                    else if (User.IsInRole("Participant"))
+                    else if (User.Identity.IsAuthenticated)//(User.IsInRole("Participant"))
                     {
-                        // Convert the show's EndTime to local time for accurate comparison
-                        @* var localEndTime = TimeZoneInfo.ConvertTimeFromUtc(show.EndTime,            TimeZoneInfo.FindSystemTimeZoneById("America/Toronto")); *@
-        
                         if (DateTime.Now > show.EndTime)
                         {
                             <span class="badge bg-danger">Event Passed</span>
                         }
-                        else if (isRegistered)
-                        {
-                            <span class="badge bg-success">Registered</span>
-                        }
                         else
                         {
-                            <form asp-action="Register"
-                                asp-controller="Shows"
-                                asp-route-showId="@show.ShowId"
-                                method="post">
-                                <input type="hidden" name="showId" value="@show.ShowId" />
-                                <button type="submit" class="btn btn-primary btn-sm register-show-btn">Register</button>
-                            </form>
-
+                            if (isRegistered)
+                            {
+                                <span class="badge bg-success">Registered</span>
+                            }
+                            else
+                            {
+                                <form asp-action="Register"
+                                    asp-controller="Shows"
+                                    asp-route-showId="@show.ShowId"
+                                    method="post" class="d-inline">
+                                    <input type="hidden" name="showId" value="@show.ShowId" />
+                                    <button type="submit" class="btn btn-primary btn-sm register-show-btn">Register</button>
+                                </form>
+                            }
                         }
                     }
-                    else if (User.IsInRole("Admin"))
+                    else if (User.Identity.IsAuthenticated) //(User.IsInRole("Admin"))
                     {
                         <a asp-action="Details" asp-route-id="@show.ShowId" class="btn btn-info btn-sm view-show">View</a>
                         <a asp-action="Edit" asp-route-id="@show.ShowId" class="btn btn-secondary btn-sm edit-designer">Edit</a>
@@ -79,7 +83,7 @@
     </tbody>
 </table>
 
-@if (User.IsInRole("Admin"))
+@if (User.Identity.IsAuthenticated)//(User.IsInRole("Admin"))
 {
     <p>
         <a asp-action="Create" class="btn btn-primary add-show">Add Show</a>

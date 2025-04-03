@@ -37,19 +37,25 @@ namespace AdilBooks.Services
         public async Task<PublisherDto?> FindPublisher(int id)
         {
             var publisher = await _context.Publishers
-                .Include(p => p.Books) // ✅ Load related books
+                .Include(p => p.Books)
+                .Include(p => p.PublisherShows)
+                    .ThenInclude(ps => ps.Show)
                 .FirstOrDefaultAsync(p => p.PublisherId == id);
 
             if (publisher == null)
-            {
                 return null;
-            }
 
             return new PublisherDto
             {
                 PublisherId = publisher.PublisherId,
                 PublisherName = publisher.PublisherName,
-                Books = publisher.Books.Select(b => b.Title).ToList() // ✅ Extract book titles
+                Books = publisher.Books.Select(b => b.Title).ToList(),
+                Shows = publisher.PublisherShows.Select(ps => ps.Show.ShowName).ToList(),
+                // ✅ Return show names
+                 ShowMap = publisher.PublisherShows.ToDictionary(
+                 ps => ps.ShowId,
+                 ps => ps.Show.ShowName
+                 )
             };
         }
 
@@ -99,10 +105,10 @@ namespace AdilBooks.Services
                     return serviceResponse;
                 }
 
-                // ✅ Update the publisher name
+                //  Update the publisher name
                 publisher.PublisherName = publisherDto.PublisherName;
 
-                // ✅ Update books if provided
+                //  Update books if provided
                 if (publisherDto.Books.Any())
                 {
                     // 🔥 Find books by title
@@ -129,7 +135,50 @@ namespace AdilBooks.Services
                 return serviceResponse;
             }
         }
+        public async Task<List<Show>> GetShowsByPublisherAsync(int publisherId)
+        {
+            return await _context.PublisherShows
+                .Where(ps => ps.PublisherId == publisherId)
+                .Select(ps => ps.Show)
+                .ToListAsync();
+        }
 
+        public async Task<bool> LinkShowAsync(int publisherId, int showId)
+        {
+            var exists = await _context.PublisherShows
+                .AnyAsync(ps => ps.PublisherId == publisherId && ps.ShowId == showId);
+
+            if (exists) return false;
+
+            _context.PublisherShows.Add(new PublisherShow
+            {
+                PublisherId = publisherId,
+                ShowId = showId
+            });
+
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<bool> UnlinkShowAsync(int publisherId, int showId)
+        {
+            var entry = await _context.PublisherShows
+                .FirstOrDefaultAsync(ps => ps.PublisherId == publisherId && ps.ShowId == showId);
+
+            if (entry == null) return false;
+
+            _context.PublisherShows.Remove(entry);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<Publisher>> GetPublishersByShowAsync(int showId)
+        {
+            return await _context.PublisherShows
+                .Where(ps => ps.ShowId == showId)
+                .Select(ps => ps.Publisher)
+                .ToListAsync();
+        }
 
 
         public async Task<ServiceResponse> DeletePublisher(int id)
