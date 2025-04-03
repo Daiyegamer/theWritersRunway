@@ -1,54 +1,76 @@
-@* @model AdilBooks.Models.Designer *@
 @model AdilBooks.Models.ViewModels.DesignerDetailsViewModel
 
 @{
     ViewData["Title"] = "Designer Details";
 }
 
-<h1>@Model.Designer.Name</h1>
-<p><strong>Category:</strong> @Model.Designer.Category</p>
-<p><strong>Created At:</strong> @Model.Designer.CreatedAt.ToString("g")</p>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title text-primary">@Model.Designer.Name</h2>
+            <p class="mb-1"><strong>Category:</strong> @Model.Designer.Category</p>
+            <p><strong>Created At:</strong> @Model.Designer.CreatedAt.ToString("g")</p>
+        </div>
+    </div>
 
-<hr />
+    <hr class="my-4" />
 
-<h3>Shows Participating In</h3>
-@if (Model.Designer.DesignerShows?.Any() == true)
-{
-    <ul>
-        @foreach (var ds in Model.Designer.DesignerShows)
-        {
-            <li>@ds.Show.ShowName (@ds.Show.Location)</li>
-        }
-    </ul>
-}
-else
-{
-    <p>No shows assigned.</p>
-}
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Shows Participating In</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.Designer.DesignerShows?.Any() == true)
+            {
+                <ul class="list-group">
+                    @foreach (var ds in Model.Designer.DesignerShows)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>@ds.Show.ShowName</span>
+                            <small class="text-muted">@ds.Show.Location</small>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No shows assigned.</p>
+            }
+        </div>
+    </div>
 
-<h3>Books Designed</h3>
-@if (Model.Books.Any())
-{
-    <ul>
-        @foreach (var book in Model.Books)
-        {
-            <li>
-                @book.Title
-                @if (Model.ShowRemoveButton)
-                {
-                    <form method="post" asp-action="RemoveBook" asp-controller="Designers" style="display:inline">
-                        <input type="hidden" name="designerId" value="@Model.Designer.DesignerId" />
-                        <input type="hidden" name="bookId" value="@book.BookId" />
-                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
-                    </form>
-                }
-            </li>
-        }
-    </ul>
-}
-else
-{
-    <p>No books assigned.</p>
-}
+    <div class="card mb-4">
+        <div class="card-header bg-dark text-white">
+            <h4 class="mb-0">Books Designed</h4>
+        </div>
+        <div class="card-body">
+            @if (Model.Books.Any())
+            {
+                <ul class="list-group">
+                    @foreach (var book in Model.Books)
+                    {
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>@book.Title</span>
+                            @if (Model.ShowRemoveButton)
+                            {
+                                <form method="post" asp-action="RemoveBook" asp-controller="Designers" class="mb-0">
+                                    <input type="hidden" name="designerId" value="@Model.Designer.DesignerId" />
+                                    <input type="hidden" name="bookId" value="@book.BookId" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                                </form>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No books assigned.</p>
+            }
+        </div>
+    </div>
 
-<a asp-action="Index" class="btn btn-secondary">Back to Designers</a>
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-secondary">Back to Designers</a>
+    </div>
+</div>

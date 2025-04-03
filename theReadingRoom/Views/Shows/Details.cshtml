@@ -1,72 +1,90 @@
-@model AdilBooks.Models.Show
+﻿@model AdilBooks.Models.Show
+@using System.Linq
+
+@@model AdilBooks.Models.Show
 
 @{
     ViewData["Title"] = "Show Details";
 }
 
-<h1>@Model.ShowName</h1>
-<p><strong>Location:</strong> @Model.Location</p>
-<p><strong>Start Time:</strong> @Model.StartTime.ToString("g")</p>
-<p><strong>End Time:</strong> @Model.EndTime.ToString("g")</p>
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">@Model.ShowName</h2>
+        </div>
+        <div class="card-body">
 
-<hr />
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong class="text-muted">📍 Location:</strong> <span class="text-dark">@Model.Location</span></p>
+                    <p><strong class="text-muted">🕓 Start Time:</strong> <span class="text-dark">@Model.StartTime.ToString("f")</span></p>
+                    <p><strong class="text-muted">🕘 End Time:</strong> <span class="text-dark">@Model.EndTime.ToString("f")</span></p>
+                </div>
+            </div>
 
-<h3>Designers in this Show</h3>
-@if (Model.DesignerShows.Any())
-{
-    <ul>
-        @foreach (var ds in Model.DesignerShows)
-        {
-            <li>@ds.Designer.Name (@ds.Designer.Category)</li>
-        }
-    </ul>
-}
-else
-{
-    <p>No designers assigned to this show.</p>
-}
+            <hr class="my-4">
 
-<hr />
+            <h4 class="text-info">🎨 Designers in this Show</h4>
+            @if (Model.DesignerShows.Any())
+            {
+                <ul class="list-group mb-4">
+                    @foreach (var ds in Model.DesignerShows)
+                    {
+                        <li class="list-group-item bg-light border-info">
+                            <strong class="text-primary">@ds.Designer.Name</strong>
+                            <span class="text-muted">(@ds.Designer.Category)</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No designers assigned to this show.</p>
+            }
 
-<h3>Registered Participants</h3>
-@if (Model.Participants.Any())
-{
-    <ul>
-        @foreach (var participant in Model.Participants)
-        {
-            <li>@participant.Name (@participant.Email)</li>
-        }
-    </ul>
-}
-else
-{
-    <p>No participants registered yet.</p>
-}
+            <h4 class="text-success">🧍‍♂️ Registered Participants</h4>
+            @if (Model.Participants.Any())
+            {
+                <ul class="list-group mb-4">
+                    @foreach (var participant in Model.Participants)
+                    {
+                        <li class="list-group-item bg-light border-success">
+                            <strong class="text-success">@participant.Name</strong>
+                            <span class="text-muted">(@participant.Email)</span>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No participants registered yet.</p>
+            }
 
-<hr />
+            <h4 class="text-warning">📚 Linked Publishers</h4>
+            @if (Model.PublisherShows != null && Model.PublisherShows.Any())
+            {
+                <ul class="list-group mb-4">
+                    @foreach (var ps in Model.PublisherShows)
+                    {
+                        <li class="list-group-item bg-light border-warning">
+                            <a asp-controller="PublishersPage" asp-action="Find" asp-route-id="@ps.Publisher.PublisherId" class="text-warning fw-bold">
+                                @ps.Publisher.PublisherName
+                            </a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p class="text-muted">No publishers linked to this show.</p>
+            }
 
-<h3>Publishers Linked to This Show</h3>
-@if (Model.PublisherShows != null && Model.PublisherShows.Any())
-{
-    <ul>
-        @foreach (var ps in Model.PublisherShows)
-        {
-            <li>
-                <a asp-controller="PublishersPage" asp-action="Find" asp-route-id="@ps.Publisher.PublisherId">
-                    @ps.Publisher.PublisherName
+            <div class="text-center mt-4">
+                <a asp-action="AdminIndex" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left-circle"></i> Back to Admin Dashboard
                 </a>
-            </li>
-        }
-    </ul>
-}
-else
-{
-    <p>No publishers linked to this show.</p>
-}
-
-<a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
-<div class="text-center mt-4">
-    <a href="/" class="btn btn-secondary">
-        <i class="fas fa-arrow-left"></i> Back to Home
-    </a>
+            </div>
+        </div>
+    </div>
 </div>
+
