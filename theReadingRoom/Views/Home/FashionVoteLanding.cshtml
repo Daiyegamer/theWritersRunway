@@ -24,6 +24,11 @@
                 <div class="card-body">
                     <h5 class="card-title text-primary">🎨 Designers</h5>
                     <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-primary">Browse Designers</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Designers</a>
+                    }
                 </div>
             </div>
         </div>
@@ -32,6 +37,11 @@
                 <div class="card-body">
                     <h5 class="card-title text-success">🧵 Participants</h5>
                     <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-success">Browse Participants</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Participants</a>
+                    }
                 </div>
             </div>
         </div>
@@ -53,6 +63,11 @@
                 <div class="card-body">
                     <h5 class="card-title text-danger">🗳️ Voting</h5>
                     <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-danger">Vote Summary</a>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Votes</a>
+                    }
                 </div>
             </div>
         </div>

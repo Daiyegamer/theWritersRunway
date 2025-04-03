@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace AdilBooks.Models
 {
@@ -27,6 +28,7 @@ namespace AdilBooks.Models
         public ICollection<Participant> Participants { get; set; } = new List<Participant>();
         public ICollection<DesignerShow> DesignerShows { get; set; } = new List<DesignerShow>();
         public ICollection<Vote> Votes { get; set; } = new List<Vote>();
+        [ValidateNever]
         public ICollection<PublisherShow> PublisherShows { get; set; }
     }
 }

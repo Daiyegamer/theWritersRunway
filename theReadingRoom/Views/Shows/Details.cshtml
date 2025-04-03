@@ -43,6 +43,27 @@ else
     <p>No participants registered yet.</p>
 }
 
+<hr />
+
+<h3>Publishers Linked to This Show</h3>
+@if (Model.PublisherShows != null && Model.PublisherShows.Any())
+{
+    <ul>
+        @foreach (var ps in Model.PublisherShows)
+        {
+            <li>
+                <a asp-controller="PublishersPage" asp-action="Find" asp-route-id="@ps.Publisher.PublisherId">
+                    @ps.Publisher.PublisherName
+                </a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No publishers linked to this show.</p>
+}
+
 <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
 <div class="text-center mt-4">
     <a href="/" class="btn btn-secondary">

@@ -11,16 +11,19 @@ using AdilBooks.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Setup SQL Server connection string
+// Setup SQL Server connection string
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseSqlServer(connectionString));
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString)); 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// ✅ Identity + Roles
+// Identity + Roles
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -30,20 +33,20 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 
 //.AddRoles<IdentityRole>();
 
-// ✅ Core MVC + Razor + SignalR
+// Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
 
-// ✅ Book Domain Services
+// Book Domain Services
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
 
-// ✅ FashionVote Services
+// FashionVote Services
 //builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
-// ✅ Swagger
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -78,7 +81,7 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// ✅ Role/User Seeding Logic
+// Role/User Seeding Logic
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -107,7 +110,7 @@ using (var scope = app.Services.CreateScope())
     //}
 }
 
-// ✅ Middleware Pipeline
+// Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -153,7 +156,7 @@ app.MapControllerRoute(
     pattern: "Publishers/{action=List}/{id?}",
     defaults: new { controller = "PublishersPage" });
 
-// ✅ SignalR (for FashionVote)
+// SignalR (for FashionVote)
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
