@@ -15,11 +15,11 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-// builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//     options.UseSqlServer(connectionString));
-
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(connectionString)); 
+    options.UseSqlServer(connectionString));
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+  //  options.UseSqlite(connectionString)); 
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -86,7 +86,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
+    //dbContext.Database.Migrate();
 
     //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
     //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
