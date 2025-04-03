@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Genevieve/Desktop/theWritersRunway/theReadingRoom/AdilBooks.csproj": {}
+    "/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/AdilBooks.csproj": {}
   },
   "projects": {
-    "/Users/Genevieve/Desktop/theWritersRunway/theReadingRoom/AdilBooks.csproj": {
+    "/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/AdilBooks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Genevieve/Desktop/theWritersRunway/theReadingRoom/AdilBooks.csproj",
+        "projectUniqueName": "/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/AdilBooks.csproj",
         "projectName": "AdilBooks",
-        "projectPath": "/Users/Genevieve/Desktop/theWritersRunway/theReadingRoom/AdilBooks.csproj",
+        "projectPath": "/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/AdilBooks.csproj",
         "packagesPath": "/Users/Genevieve/.nuget/packages/",
-        "outputPath": "/Users/Genevieve/Desktop/theWritersRunway/theReadingRoom/obj/",
+        "outputPath": "/Users/Genevieve/Desktop/Web-Dev-Humber/winter-semester-2025/theWritersRunway/theReadingRoom/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Genevieve/.nuget/NuGet/NuGet.Config"
