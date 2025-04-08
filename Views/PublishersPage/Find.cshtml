@@ -10,7 +10,7 @@
     <hr class="mb-4">
 
     <!-- Actions (Only for Authenticated Users) -->
-    @if (User.Identity.IsAuthenticated)
+    @if (User.IsInRole("Admin"))
     {
         <div class="text-end mb-3">
             <a href="/Publishers/Edit/@publisher.PublisherId" class="btn btn-warning">

@@ -73,7 +73,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Add
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public async Task<IActionResult> Add(AddBookDto addBookDto)
         {
@@ -118,7 +119,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Update
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(UpdateBookDto updateBookDto)
         {
@@ -149,7 +151,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Delete/{id}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -163,7 +166,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/LinkAuthorToBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("LinkAuthorToBook")]
         public async Task<IActionResult> LinkAuthorToBook([FromForm] int bookId, [FromForm] int authorId)
 
@@ -182,7 +186,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/UnlinkAuthorFromBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("UnlinkAuthorFromBook")]
         public async Task<IActionResult> UnlinkAuthorFromBook([FromForm] int bookId, [FromForm] int authorId)
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -15,23 +15,39 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseSqlServer(connectionString));
 
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-  //  options.UseSqlite(connectionString)); 
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+   options.UseSqlite(connectionString)); 
+
+// COMMENTED THIS OUT FOR NOW
+// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Identity + Roles
+// Identity + Roles COMMENTED THIS OUT FOR NOW
+// builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+// {
+//     options.SignIn.RequireConfirmedAccount = false;
+// })
+// .AddEntityFrameworkStores<ApplicationDbContext>()
+// .AddDefaultUI()
+
+// .AddRoles<IdentityRole>();
+
+// ADDED THIS INSTEAD
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders()
 .AddDefaultUI();
 
-//.AddRoles<IdentityRole>();
+
+
 
 // Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
@@ -86,9 +102,17 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    //dbContext.Database.Migrate();
+    
+    // UNCOMENTED THESE LINES BELOW
+    dbContext.Database.Migrate();
 
-    //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roles = { "Admin", "Participant" };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
     //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
     //string adminEmail = "admin@fashionvote.com";

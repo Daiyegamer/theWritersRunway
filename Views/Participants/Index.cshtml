@@ -46,7 +46,7 @@
                         <span class="text-muted">No shows registered</span>
                     }
                 </td>
-                @if (User.Identity.IsAuthenticated)
+                @if (User.IsInRole("Admin"))
                 {
                     <td>
                         <a asp-action="Edit" asp-route-id="@participant.ParticipantId" class="btn btn-warning btn-sm edit-participant">Edit</a>

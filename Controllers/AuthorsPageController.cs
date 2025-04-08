@@ -99,7 +99,8 @@ namespace AdilBooks.Controllers
 
             return View(author);
         }
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Update")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(AuthorDto authorDto)
@@ -136,7 +137,8 @@ namespace AdilBooks.Controllers
 
 
         // POST: Authors/Delete/{id}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
         {

@@ -47,7 +47,7 @@
                            asp-route-returnUrl="@Url.Action("Register", "Shows", new { showId = show.ShowId })"
                            class="btn btn-primary btn-sm">Register</a>
                     }
-                    else if (User.Identity.IsAuthenticated)//(User.IsInRole("Participant"))
+                    else if (User.IsInRole("Participant"))
                     {
                         if (DateTime.Now > show.EndTime)
                         {
@@ -71,7 +71,7 @@
                             }
                         }
                     }
-                    else if (User.Identity.IsAuthenticated) //(User.IsInRole("Admin"))
+                    else if (User.IsInRole("Admin"))
                     {
                         <a asp-action="Details" asp-route-id="@show.ShowId" class="btn btn-info btn-sm view-show">View</a>
                         <a asp-action="Edit" asp-route-id="@show.ShowId" class="btn btn-secondary btn-sm edit-designer">Edit</a>
@@ -83,7 +83,7 @@
     </tbody>
 </table>
 
-@if (User.Identity.IsAuthenticated)//(User.IsInRole("Admin"))
+@if (User.IsInRole("Admin"))
 {
     <p>
         <a asp-action="Create" class="btn btn-primary add-show">Add Show</a>

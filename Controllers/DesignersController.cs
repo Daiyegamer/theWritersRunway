@@ -43,9 +43,8 @@ namespace AdilBooks.Controllers
         /// Displays the form to create a new designer (Admin Only).
         /// </summary>
         /// 
-        [Authorize]
         [HttpGet("create")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create()
         {
             ViewBag.Shows = await _context.Shows
@@ -63,9 +62,8 @@ namespace AdilBooks.Controllers
         /// <summary>
         /// Handles form submission for creating a new designer (Admin Only).
         /// </summary>
-        [Authorize]
         [HttpPost("create")]
-       // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] DesignerCreateDTO designerDto)
         {
@@ -121,8 +119,7 @@ namespace AdilBooks.Controllers
         /// </summary>
         /// 
         [HttpGet("edit/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var designer = await _context.Designers
@@ -153,8 +150,7 @@ namespace AdilBooks.Controllers
         /// Updates a designer's details (Admin Only).
         /// </summary>
         [HttpPost("edit/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [FromForm] DesignerUpdateDTO designerDto)
         {
@@ -209,8 +205,7 @@ namespace AdilBooks.Controllers
         /// Displays the delete confirmation page for a designer (Admin Only).
         /// </summary>
         [HttpGet("delete/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var designer = await _context.Designers
@@ -229,8 +224,7 @@ namespace AdilBooks.Controllers
         /// Handles the form submission to delete a designer (Admin Only).
         /// </summary>
         [HttpPost("delete/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -255,7 +249,7 @@ namespace AdilBooks.Controllers
         /// Displays the details of a designer (Admin Only).
         /// </summary>
         [HttpGet("details/{id}")]
-        // [Authorize]
+
         public async Task<IActionResult> Details(int id)
         {
             var designer = await _context.Designers
@@ -279,7 +273,7 @@ namespace AdilBooks.Controllers
 
 
         [HttpPost("remove-book")]
-         [Authorize]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> RemoveBook(int designerId, int bookId)
         {

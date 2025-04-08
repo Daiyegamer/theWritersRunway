@@ -10,7 +10,7 @@
     <hr class="mb-4">
 
     <!-- Create New Publisher Button (Only for Authenticated Users) -->
-    @if (User.Identity.IsAuthenticated)
+    @if (User.IsInRole("Admin"))
     {
         <div class="text-end mb-3">
             <a href="/Publishers/Add" class="btn btn-success">
@@ -40,7 +40,7 @@
                             </a>
 
                             <!-- Edit & Delete (Only for Authenticated Users) -->
-                            @if (User.Identity.IsAuthenticated)
+                            @if (User.IsInRole("Admin"))
                             {
                                 <a href="/Publishers/Edit/@publisher.PublisherId" class="btn btn-warning btn-sm">
                                     <i class="fas fa-edit"></i> Edit

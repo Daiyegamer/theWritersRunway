@@ -36,7 +36,7 @@
                 <td>@show.StartTime.ToShortDateString()</td>
                 <td>@show.EndTime.ToShortDateString()</td>
                 <td>
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <form asp-action="UnlinkShow" method="post" class="d-inline">
                             <input type="hidden" name="publisherId" value="@publisherId" />
@@ -51,7 +51,7 @@
 </table>
 
 <hr />
-@if (User.Identity.IsAuthenticated)
+@if (User.IsInRole("Admin"))
 {
 <h3>Link a New Show</h3>
 <form asp-action="LinkShow" method="post">

@@ -63,8 +63,7 @@ namespace AdilBooks.Controllers
         /// Displays the admin view of all shows.
         /// </summary>
         [HttpGet("admin")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AdminIndex()
         {
             var shows = await _context.Shows
@@ -82,8 +81,7 @@ namespace AdilBooks.Controllers
         /// Displays the list of shows the participant is registered for.
         /// </summary>
         [HttpGet("myshows")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         public async Task<IActionResult> MyShows()
         {
             var userEmail = User.Identity.Name;
@@ -106,8 +104,7 @@ namespace AdilBooks.Controllers
         /// Registers a participant for a show.
         /// </summary>
         [HttpPost("register/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(int showId)
         {
@@ -151,8 +148,7 @@ namespace AdilBooks.Controllers
         /// Displays the create show form.
         /// </summary>
         [HttpGet("create")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -163,8 +159,7 @@ namespace AdilBooks.Controllers
         /// Creates a new show.
         /// </summary>
         [HttpPost("create")]
-        //[Authorize(Roles = "Admin")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Show show)
         {
@@ -221,8 +216,7 @@ namespace AdilBooks.Controllers
         /// Displays the edit form for a specific show.
         /// </summary>
         [HttpGet("edit/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id)
         {
             var show = await _context.Shows.FindAsync(id);
@@ -242,8 +236,7 @@ namespace AdilBooks.Controllers
         /// Updates the details of an existing show.
         /// </summary>
         [HttpPost("edit/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [FromForm] Show show)
         {
@@ -307,8 +300,7 @@ namespace AdilBooks.Controllers
         /// Unregisters a participant from a show before it starts.
         /// </summary>
         [HttpPost("unregister/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Unregister(int showId)
         {
@@ -350,8 +342,7 @@ namespace AdilBooks.Controllers
         /// Displays the delete confirmation page for a past show.
         /// </summary>
         [HttpGet("delete/participant/confirm/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         public async Task<IActionResult> DeleteConfirmParticipant(int showId)
         {
             var userEmail = User.Identity.Name;
@@ -388,8 +379,7 @@ namespace AdilBooks.Controllers
         /// Deletes a participant's past show.
         /// </summary>
         [HttpPost("participant/delete/confirmed/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmedParticipant(int showId)
         {
@@ -431,8 +421,7 @@ namespace AdilBooks.Controllers
         /// Displays the delete confirmation page for a show (Admin only).
         /// </summary>
         [HttpGet("delete/{id}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var show = await _context.Shows.FindAsync(id);
@@ -445,8 +434,7 @@ namespace AdilBooks.Controllers
         /// Deletes a show (Admin only).
         /// </summary>
         [HttpPost("delete/{id}")]
-        [Authorize]
-        // [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

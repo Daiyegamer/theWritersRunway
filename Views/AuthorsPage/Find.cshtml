@@ -41,7 +41,7 @@
             </div>
 
             <!-- Actions (Only for Authenticated Users) -->
-            @if (User.Identity.IsAuthenticated)
+            @if (User.IsInRole("Admin"))
             {
                 <div class="mt-4">
                     <a asp-controller="AuthorsPage" asp-action="Edit" asp-route-id="@Model.AuthorId" class="btn btn-warning">
