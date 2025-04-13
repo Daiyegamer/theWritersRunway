@@ -9,7 +9,7 @@ namespace AdilBooks.Models
         public int AuthorId { get; set; }
         public string Name { get; set; }
         public string Bio { get; set; }
-
+        public string? ImagePath { get; set; }        
         public virtual ICollection<Book> Books { get; set; }
 
     }
@@ -20,8 +20,11 @@ namespace AdilBooks.Models
             public int AuthorId { get; set; }
             public string Name { get; set; }
             public string Bio { get; set; }
-            public string Titles { get; set; } 
-            
+            public string Titles { get; set; }
+            public IFormFile? ImageFile { get; set; }
+            public string? ImagePath { get; set; }
+            public string? ExistingImagePath { get; set; } 
+
         }
     public class AuthorListDto
     {

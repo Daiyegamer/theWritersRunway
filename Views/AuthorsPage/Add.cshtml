@@ -6,9 +6,8 @@
 
 <h1>Add Author</h1>
 
-<!-- ✅ Ensure Form Submits Correctly -->
-<form asp-action="Add" asp-controller="AuthorsPage" method="post">
-    @Html.AntiForgeryToken() <!-- ✅ CSRF Protection -->
+<form asp-action="Add" asp-controller="AuthorsPage" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
 
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -24,11 +23,16 @@
         <span asp-validation-for="Bio" class="text-danger"></span>
     </div>
 
-    <!-- ✅ Ensure Titles is Included -->
     <div class="form-group">
         <label asp-for="Titles" class="control-label">Book Titles</label>
         <input asp-for="Titles" class="form-control" placeholder="Enter book titles, separated by commas" />
         <span asp-validation-for="Titles" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageFile" class="control-label">Upload Author Image (optional)</label>
+        <input asp-for="ImageFile" type="file" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
     <button type="submit" class="btn btn-primary">Create Author</button>

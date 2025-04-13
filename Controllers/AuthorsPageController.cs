@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using AdilBooks.Services;
 using AdilBooks.Data;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+
 
 namespace AdilBooks.Controllers
 {
@@ -17,12 +20,14 @@ namespace AdilBooks.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IAuthorService _authorService;
         private readonly IBookService _bookService;
+        private readonly IFileService _fileService;
 
-        public AuthorsPageController(ApplicationDbContext context, IAuthorService authorService, IBookService bookService)
+        public AuthorsPageController(ApplicationDbContext context, IAuthorService authorService, IBookService bookService, IFileService fileService)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context)); // ✅ Ensure _context is initialized
             _authorService = authorService ?? throw new ArgumentNullException(nameof(authorService));
             _bookService = bookService ?? throw new ArgumentNullException(nameof(bookService));
+            _fileService = fileService ?? throw new ArgumentNullException(nameof(fileService));
         }
 
         // GET: Authors/List
@@ -46,16 +51,15 @@ namespace AdilBooks.Controllers
 
 
 
-
-        // GET: Authors/Add
         [HttpGet("Add")]
         public IActionResult Add()
         {
-            return View(new AuthorDto()); // ✅ Ensure a model is sent
+            return View(new AuthorDto()); // Send empty DTO to the form
         }
+
         [Authorize]
         [HttpPost("Add")]
-        [ValidateAntiForgeryToken] // ✅ Prevent CSRF Attacks
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Add(AuthorDto authorDto)
         {
             Console.WriteLine($"🔹 Received Add Request: Name={authorDto.Name}, Bio={authorDto.Bio}, Titles={authorDto.Titles}");
@@ -70,7 +74,20 @@ namespace AdilBooks.Controllers
                         Console.WriteLine($"❌ Model Error - {key}: {error.ErrorMessage}");
                     }
                 }
-                return View("Add", authorDto); // ✅ Return with validation errors
+                return View("Add", authorDto);
+            }
+
+            // ✅ Handle image upload if a file is provided
+            if (authorDto.ImageFile != null)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "authors");
+                var uniqueFileName = $"{Guid.NewGuid()}_{Path.GetFileName(authorDto.ImageFile.FileName)}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                await _fileService.SaveFileAsync(authorDto.ImageFile, filePath);
+
+                // Save relative path (for browser access)
+                authorDto.ImagePath = Path.Combine("/uploads/authors", uniqueFileName);
             }
 
             var response = await _authorService.AddAuthor(authorDto);
@@ -88,6 +105,7 @@ namespace AdilBooks.Controllers
         }
 
 
+
         [HttpGet("Edit/{id}")]
         public async Task<IActionResult> Edit(int id)
         {
@@ -99,7 +117,7 @@ namespace AdilBooks.Controllers
 
             return View(author);
         }
-        // [Authorize]
+
         [Authorize(Roles = "Admin")]
         [HttpPost("Update")]
         [ValidateAntiForgeryToken]
@@ -110,8 +128,18 @@ namespace AdilBooks.Controllers
                 return View("Edit", authorDto);
             }
 
-            var response = await _authorService.UpdateAuthor(authorDto); // ✅ Only pass authorDto
+            // ✅ Handle new image upload (optional)
+            if (authorDto.ImageFile != null)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "authors");
+                var uniqueFileName = $"{Guid.NewGuid()}_{Path.GetFileName(authorDto.ImageFile.FileName)}";
+                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
+                await _fileService.SaveFileAsync(authorDto.ImageFile, filePath);
+                authorDto.ImagePath = Path.Combine("/uploads/authors", uniqueFileName);
+            }
+
+            var response = await _authorService.UpdateAuthor(authorDto);
             if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
                 return View("Error", new ErrorViewModel { Errors = response.Messages });
@@ -120,6 +148,7 @@ namespace AdilBooks.Controllers
             TempData["SuccessMessage"] = "Author updated successfully!";
             return RedirectToAction("List");
         }
+
 
 
         [HttpGet("ConfirmDelete/{id}")]
