@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AdilBooks.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250413194011_imageuploadauthor2")]
-    partial class imageuploadauthor2
+    [Migration("20250413225600_first")]
+    partial class first
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace AdilBooks.Migrations
 
                     b.Property<string>("Bio")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

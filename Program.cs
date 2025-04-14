@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -33,7 +33,6 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 // })
 // .AddEntityFrameworkStores<ApplicationDbContext>()
 // .AddDefaultUI()
-
 // .AddRoles<IdentityRole>();
 
 // ADDED THIS INSTEAD
@@ -46,13 +45,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 .AddDefaultTokenProviders()
 .AddDefaultUI();
 
-
-
 // Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
-
 
 // Book Domain Services
 builder.Services.AddScoped<IBookService, BookService>();
@@ -103,7 +99,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    
+
     // UNCOMENTED THESE LINES BELOW
     dbContext.Database.Migrate();
 
@@ -119,7 +115,9 @@ using (var scope = app.Services.CreateScope())
 // Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); // ✅ Show detailed dev errors
     app.UseMigrationsEndPoint();
+
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -134,7 +132,7 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // ✅ Required to serve images/css/js
 app.UseRouting();
 
 app.UseAuthentication();
@@ -143,6 +141,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 
+// Custom Routes
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -163,10 +162,7 @@ app.MapControllerRoute(
     defaults: new { controller = "PublishersPage" });
 
 // SignalR (for FashionVote)
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
-    endpoints.MapControllers(); // backup route mapping
-});
+app.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
 
 app.Run();
+    

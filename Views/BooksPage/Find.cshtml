@@ -5,6 +5,18 @@
 }
 
 <div class="container mt-4">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
     <!-- Page Title -->
     <h1 class="text-center text-primary">📖 Book Details</h1>
     <hr class="mb-4">

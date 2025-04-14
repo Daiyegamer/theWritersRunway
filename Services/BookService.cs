@@ -95,13 +95,13 @@ namespace AdilBooks.Services
                 return serviceResponse;
             }
         }
-
         public async Task<ServiceResponse> AddBook(AddBookDto addBookDto)
         {
             ServiceResponse serviceResponse = new();
 
             try
             {
+                // 🔹 Get or Create Publisher
                 var publisher = await _context.Publishers
                     .FirstOrDefaultAsync(p => p.PublisherName == addBookDto.PublisherName);
 
@@ -116,14 +116,25 @@ namespace AdilBooks.Services
                 var authors = new List<Author>();
                 foreach (var authorName in addBookDto.AuthorNames)
                 {
+                    if (string.IsNullOrWhiteSpace(authorName)) continue; // ✅ Skip blank names
+
                     var author = await _context.Authors
-                        .FirstOrDefaultAsync(a => a.Name == authorName);
+                        .FirstOrDefaultAsync(a => a.Name == authorName.Trim());
 
                     if (author == null)
                     {
-                        author = new Author { Name = authorName };
+                        // ✅ Create new author with defaults
+                        author = new Author
+                        {
+                            Name = authorName.Trim(),
+                            Bio = "Biography not provided.",
+                            ImagePath = null,
+                            Books = new List<Book>()
+                        };
+
                         _context.Authors.Add(author);
                         await _context.SaveChangesAsync();
+
                         serviceResponse.Messages.Add($"New author '{authorName}' added.");
                     }
 
@@ -159,11 +170,14 @@ namespace AdilBooks.Services
             }
             catch (Exception ex)
             {
+                Console.WriteLine("❌ Book Creation Error: " + ex.ToString());
+
                 serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
                 serviceResponse.Messages.Add($"An error occurred while adding the book: {ex.Message}");
                 return serviceResponse;
             }
         }
+
 
         public async Task<ServiceResponse> DeleteBook(int id)
         {

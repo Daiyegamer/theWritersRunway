@@ -28,6 +28,7 @@ namespace AdilBooks.Controllers
 
         // GET: Publishers/List
         [HttpGet("List")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> List()
         {
             IEnumerable<PublisherDto> publishers = await _publisherService.ListPublishers();
@@ -155,7 +156,9 @@ namespace AdilBooks.Controllers
         // POST: Publishers/Delete/{id}
         // [Authorize]
         [Authorize(Roles = "Admin")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpPost("Delete/{id}")]
+        
         public async Task<IActionResult> Delete(int id)
         {
             ServiceResponse response = await _publisherService.DeletePublisher(id);

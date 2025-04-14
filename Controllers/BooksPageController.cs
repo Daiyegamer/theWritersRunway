@@ -29,6 +29,7 @@ namespace AdilBooks.Controllers
 
         // GET: Books/List
         [HttpGet("List")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> List()
         {
             IEnumerable<BookListDto> books = await _bookService.ListBooks();
@@ -139,6 +140,7 @@ namespace AdilBooks.Controllers
         }
 
         // GET: Books/ConfirmDelete/{id}
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpGet("ConfirmDelete/{id}")]
         public async Task<IActionResult> ConfirmDelete(int id)
         {
@@ -154,6 +156,7 @@ namespace AdilBooks.Controllers
         // [Authorize]
         [Authorize(Roles = "Admin")]
         [HttpPost("Delete/{id}")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> Delete(int id)
         {
             ServiceResponse response = await _bookService.DeleteBook(id);
@@ -179,8 +182,10 @@ namespace AdilBooks.Controllers
             }
             else if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return StatusCode(500, new { error = "InternalServerError", message = response.Messages });
+                TempData["ErrorMessage"] = string.Join(", ", response.Messages);
+                return RedirectToAction("Find", new { id = bookId });
             }
+
 
             return RedirectToAction("Find", new { id = bookId });
         }

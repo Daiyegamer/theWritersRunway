@@ -32,6 +32,7 @@ namespace AdilBooks.Controllers
 
         // GET: Authors/List
         [HttpGet("List")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> List()
         {
             IEnumerable<AuthorListDto> authors = await _authorService.ListAuthors();
@@ -150,8 +151,9 @@ namespace AdilBooks.Controllers
         }
 
 
-
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpGet("ConfirmDelete/{id}")]
+        
         public async Task<IActionResult> ConfirmDelete(int id)
         {
             var author = await _authorService.FindAuthor(id);
@@ -167,6 +169,7 @@ namespace AdilBooks.Controllers
 
         // POST: Authors/Delete/{id}
         // [Authorize]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [Authorize(Roles = "Admin")]
         [HttpPost("Delete/{id}")]
         public async Task<IActionResult> Delete(int id)
