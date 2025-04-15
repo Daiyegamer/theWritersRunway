@@ -1,12 +1,18 @@
 # ✨ theWritersRunway  
 Merging writing with fashion — where books meet fashion shows.
+# ✨ theWritersRunway  
+Merging writing with fashion — where books meet fashion shows.
 
+---
 ---
 
 ## 📚 Project Overview
 
 This unified platform integrates two major systems:
+This unified platform integrates two major systems:
 
+- **ReadingRoom**: Book and publishing management system with authors, publishers, and shows.
+- **Fashion Voting System**: A stylish voting module by Genevieve that manages designers, fashion shows, participants, and votes — integrated with ReadingRoom through many-to-many relationships.
 - **ReadingRoom**: Book and publishing management system with authors, publishers, and shows.
 - **Fashion Voting System**: A stylish voting module by Genevieve that manages designers, fashion shows, participants, and votes — integrated with ReadingRoom through many-to-many relationships.
 
@@ -190,10 +196,22 @@ Uploaded images are stored in the `wwwroot/uploads/` directory, and their URLs a
 - Manual FK recreation
 - Data restored from backups
 - Entity Framework migrations carefully managed
+- Identity key corruption in Shows resolved manually
+- Original Show IDs preserved
+- Manual FK recreation
+- Data restored from backups
+- Entity Framework migrations carefully managed
 
 ---
 
 ## 🗂️ Project Structure
+```
+/Models         → Data models
+/Controllers    → MVC controllers
+/Views          → Razor pages
+/Services       → Business logic
+/Data           → ApplicationDbContext & config
+```
 ```
 /Models         → Data models
 /Controllers    → MVC controllers
