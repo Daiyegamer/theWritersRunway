@@ -120,6 +120,43 @@ This project combines two systems:
 - Voting logic implemented with unique index on (ParticipantId, DesignerId, ShowId)
 - Views to allow voting per show from participant
 
+## Extra Feature for Fashion Vote
+### Role-Based Access Control
+This project implements **role-based access control** using ASP.NET Core Identity. There are two user roles:
+
+- **Admin**: Can create, edit, and delete shows, view all participants and votes.
+- **Participant**: Can register for shows, vote for designers, upload outfit images, and manage their own participation.
+
+Roles are assigned during user registration based on where the user signs up:
+- If a user registers through the general navigation/register page, they are assigned the **Admin** role.
+- If a user registers through the **Upcoming Shows** page, they are automatically assigned the **Participant** role and redirected to view their shows.
+
+Protected endpoints are secured with role-specific `[Authorize(Roles = "...")]` attributes to ensure appropriate access control.
+
+---
+
+### Image Upload for Votes
+After a **Participant** casts a vote for a designer in a show, they can upload an outfit image to represent their look.
+
+Features:
+- **Upload Image**: Each vote record allows uploading one image (e.g., outfit worn).
+- **View Image**: If an image is uploaded, it is displayed alongside the designer's vote entry.
+- **Update Image**: Participants can replace their uploaded image.
+- **Delete Image**: Images can be deleted, which also removes the image file from the server.
+
+Uploaded images are stored in the `wwwroot/uploads/` directory, and their URLs are saved in the database.
+
+---
+
+### Summary
+These enhancements ensure:
+- Users are restricted to actions based on their roles.
+- Participants can visually support their votes with outfit uploads.
+- Admins retain full control of show management.
+
+The features contribute to a more dynamic, secure, and user-centric voting experience.
+
+
 ---
 
 ## 🔗 Entity Relationships Summary
