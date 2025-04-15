@@ -1,58 +1,78 @@
-# theWritersRunway
-Merging writing with fashion, where books and fashion shows meet.
+# ✨ theWritersRunway  
+Merging writing with fashion — where books meet fashion shows.
 
-# ReadingRoom & Fashion Voting System
+---
 
 ## 📚 Project Overview
 
-This project combines two systems:
+This unified platform integrates two major systems:
 
-- **ReadingRoom**: A publishing and book management system that allows for managing books, authors, publishers, and shows.
-- **Fashion Voting System**: A fashion-focused module contributed by Genevieve that allows designers to participate in shows and get votes from participants. This module was integrated with the ReadingRoom project through shared entities and relationships.
+- **ReadingRoom**: Book and publishing management system with authors, publishers, and shows.
+- **Fashion Voting System**: A stylish voting module by Genevieve that manages designers, fashion shows, participants, and votes — integrated with ReadingRoom through many-to-many relationships.
 
 ---
 
 ## 🧱 Technologies Used
-
 - ASP.NET Core MVC (C#)
 - Entity Framework Core (EF Core)
 - SQL Server
-- Swagger (API Testing)
-- Razor Views (for UI)
-- Identity (User Authentication)
+- Razor Views
+- Swagger for API testing
+- Identity for authentication & roles
+- Role-based authorization (Admin / Participant)
 
 ---
 
-## 🔄 Key Features Implemented
-
-### ReadingRoom Domain (Backend by Adil)
-
-#### ✅ Publishers
-- CRUD operations (List, Add, Update, Delete)
-- View publisher details (including associated books and shows)
-- Link/Unlink Shows from a Publisher
-- View all linked shows for a Publisher
-
-#### ✅ Books
-- CRUD operations
-- Associated with Authors and Publishers
-- View Books by Publisher
-
-#### ✅ Authors
-- CRUD with many-to-many relation to Books
-
-#### ✅ Shows
-- CRUD operations
-- Linked to Publishers, Designers, Participants, and Votes
-- Identity key (`ShowId`) redefined after migration corruption
-- Foreign keys re-established after manual fixes
-
-#### ✅ Participants & Voting
-- CRUD for Participants
-- Voting logic implemented with unique index on (ParticipantId, DesignerId, ShowId)
-- Views to allow voting per show and participant
+## 🔐 Authentication & Authorization (NEW)
+✅ Role-based login system integrated by Genevieve using ASP.NET Identity.  
+- `Admin` users can manage content (CRUD, linking, deleting).
+- `Participant` users can vote in fashion shows.
+- Identity UI enabled, with registration & login pages.
 
 ---
+
+## 📸 Image Upload Feature (NEW)
+✅ Image upload added for Authors by Adil:  
+- Authors can upload profile pictures when created or edited.  
+- Images are saved to `/wwwroot/uploads/authors/` with unique file names.  
+- Displayed in Find/List views  
+- Old images are deleted on update  
+- FileService handles save & cleanup  
+
+---
+
+## 🔄 Core Features
+
+### ✅ Publishers
+- Full CRUD
+- Link/unlink shows
+- View linked shows
+
+### ✅ Books
+- Full CRUD
+- Link/unlink authors
+- View by publisher
+
+### ✅ Authors
+- Full CRUD with **image support**
+- Link/unlink books
+- Upload profile picture
+- View authors with images
+
+### ✅ Shows
+- Full CRUD
+- Linked to:
+  - Publishers
+  - Designers
+  - Participants
+  - Votes
+
+### ✅ Participants & Voting
+- Vote for designers in a show
+- Unique constraint per (Participant, Designer, Show)
+
+---
+
 
 ## 🎨 Fashion Voting System Module (by Genevieve)
 
@@ -71,7 +91,6 @@ This project combines two systems:
 - View (`Views/Books/Find.cshtml`) was updated to:
   - Loop through `Model.LinkedDesigners`
   - Add an anchor tag that links to `Designers/Details/{id}`
-
 
 
 ### 👗 Designer Section 
@@ -104,13 +123,6 @@ This project combines two systems:
   - Handles conditional rendering of remove buttons for books
 
 
-### Testing & UX
-
-- Currently no authentication required for user (to be implemented next)
-- Views are functional for all users
-- API is being aligned with controller logic for curl/postman testing
-
-
 ### Shows
 - CRUD operations
 - Linked to Publishers, Designers, Participants, and Votes
@@ -120,7 +132,10 @@ This project combines two systems:
 - Voting logic implemented with unique index on (ParticipantId, DesignerId, ShowId)
 - Views to allow voting per show from participant
 
+---
+
 ## Extra Feature for Fashion Vote
+
 ### Role-Based Access Control
 This project implements **role-based access control** using ASP.NET Core Identity. There are two user roles:
 
@@ -148,61 +163,52 @@ Uploaded images are stored in the `wwwroot/uploads/` directory, and their URLs a
 
 ---
 
-### Summary
-These enhancements ensure:
-- Users are restricted to actions based on their roles.
-- Participants can visually support their votes with outfit uploads.
-- Admins retain full control of show management.
+## 🧪 Testing & Swagger
 
-The features contribute to a more dynamic, secure, and user-centric voting experience.
-
+- Swagger enabled at `/swagger`
+- All API endpoints tested via Swagger/Postman
+- Frontend UI tested for both reading and voting modules
 
 ---
 
-## 🔗 Entity Relationships Summary
+## 🔗 Entity Relationship Summary
 
-- `Publisher ↔ Show` (many-to-many)
-- `Book ↔ Author` (many-to-many)
-- `Designer ↔ Book` (many-to-many)
-- `Designer ↔ Show` (many-to-many)
-- `Participant ↔ Show` (many-to-many)
-- `Vote`: maps `Participant ↔ Designer ↔ Show`
-
----
-
-## 🧪 Testing and Swagger
-
-Swagger is enabled for all APIs. During testing:
-- Views were temporarily commented out for full Swagger testing
-- Link/unlink and listing actions were verified through API and browser
+| Relationship               | Type            |
+|---------------------------|-----------------|
+| Publisher ↔ Show          | Many-to-Many    |
+| Book ↔ Author             | Many-to-Many    |
+| Designer ↔ Book           | Many-to-Many    |
+| Designer ↔ Show           | Many-to-Many    |
+| Participant ↔ Show        | Many-to-Many    |
+| Vote                      | Composite FK    |
 
 ---
 
 ## 🧠 Database Management
-
-- Manual database interventions were done when EF migrations failed due to corrupted identity/primary key constraints
-- Foreign keys were recreated manually where necessary
-- Old data was backed up and inserted back manually with original IDs
+- Identity key corruption in Shows resolved manually
+- Original Show IDs preserved
+- Manual FK recreation
+- Data restored from backups
+- Entity Framework migrations carefully managed
 
 ---
 
 ## 🗂️ Project Structure
-
-- `/Models`: Entity classes (Show, Book, Designer, etc.)
-- `/Controllers`: MVC + API controllers
-- `/Views`: Razor views for CRUD
-- `/Services`: Business logic, clean separation from controllers
-- `/Data`: `ApplicationDbContext` with full model mapping
+```
+/Models         → Data models
+/Controllers    → MVC controllers
+/Views          → Razor pages
+/Services       → Business logic
+/Data           → ApplicationDbContext & config
+```
 
 ---
 
 ## 👥 Contributors
-
-- **Adil**: Core backend developer for ReadingRoom
-- **Genevieve**: Designer management and fashion voting system
+- **Adil**: Core backend dev for ReadingRoom, authors, publishers, book logic, UI enhancements, basic authentication and image upload feature
+- **Genevieve**: core backend dev for Designer and Fashion Voting system logic, role-based authentication, Image upload for voted designer, and UI enhancements
 
 ---
 
-## 🗓️ Last Updated
-April 03, 2025
-
+## 📆 Last Updated
+**April 15, 2025**
