@@ -31,6 +31,8 @@
         <input asp-for="EndTime" class="form-control" type="datetime-local" required />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary add-show">Save</button>
-    <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
+    <div class="save-cancel-show">
+        <button type="submit" class="btn btn-primary add-show">Save</button>
+        <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>

@@ -5,13 +5,20 @@
 }
 
 <div class="container mt-4">
-    <!-- Page Title -->
     <h1 class="text-center text-primary">✍️ Author Details</h1>
     <hr class="mb-4">
 
-    <!-- Author Card -->
     <div class="card shadow-lg border-0">
         <div class="card-body">
+
+            @* Display the image if it exists *@
+            @if (!string.IsNullOrEmpty(Model.ImagePath))
+            {
+                <div class="text-center mb-3">
+                    <img src="@Model.ImagePath" alt="Author Image" class="img-thumbnail" style="max-height: 250px;" />
+                </div>
+            }
+
             <h3 class="card-title text-primary">@Model.Name</h3>
             <hr>
 
@@ -20,7 +27,6 @@
                 @Model.Bio
             </p>
 
-            <!-- Books List -->
             <div>
                 <strong>📚 Books by This Author:</strong>
                 <ul class="list-group mt-2">
@@ -40,8 +46,7 @@
                 </ul>
             </div>
 
-            <!-- Actions (Only for Authenticated Users) -->
-            @if (User.Identity.IsAuthenticated)
+            @if (User.IsInRole("Admin"))
             {
                 <div class="mt-4">
                     <a asp-controller="AuthorsPage" asp-action="Edit" asp-route-id="@Model.AuthorId" class="btn btn-warning">
@@ -53,7 +58,6 @@
                 </div>
             }
 
-            <!-- Back to List Button -->
             <div class="mt-4">
                 <a asp-controller="AuthorsPage" asp-action="List" class="btn btn-secondary">
                     <i class="fas fa-arrow-left"></i> Back to List

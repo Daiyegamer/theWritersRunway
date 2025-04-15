@@ -56,7 +56,11 @@
                                 <form method="post" asp-action="RemoveBook" asp-controller="Designers" class="mb-0">
                                     <input type="hidden" name="designerId" value="@Model.Designer.DesignerId" />
                                     <input type="hidden" name="bookId" value="@book.BookId" />
-                                    <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                                    }
+                                    
                                 </form>
                             }
                         </li>

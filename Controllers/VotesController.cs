@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace AdilBooks.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("Votes")]
     public class VotesController : Controller
     {
@@ -36,7 +36,7 @@ namespace AdilBooks.Controllers
         /// Displays the list of all votes (Admin only).
         /// </summary>
         [HttpGet("")]
-        [Authorize]
+        [AllowAnonymous]
         // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
@@ -54,8 +54,8 @@ namespace AdilBooks.Controllers
         /// Displays vote details and designer vote counts for a specific show (Admin only).
         /// </summary>
         [HttpGet("ShowVotes/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ShowVotes(int showId)
         {
             var show = await _context.Shows
@@ -88,8 +88,7 @@ namespace AdilBooks.Controllers
         /// Displays the voting page for a participant for a specific show.
         /// </summary>
         [HttpGet("Vote/{showId}")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         public async Task<IActionResult> Vote(int showId)
         {
             var userEmail = User.Identity.Name;
@@ -129,8 +128,7 @@ namespace AdilBooks.Controllers
         /// Submits votes for one or more designers in a specific show (Participant only).
         /// </summary>
         [HttpPost("SubmitVote")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SubmitVote(int showId, List<int> DesignerIds, [FromServices] IHubContext<VoteHub> hubContext)
         {
@@ -187,8 +185,7 @@ namespace AdilBooks.Controllers
         /// Removes a vote for a designer in a specific show (Participant only).
         /// </summary>
         [HttpPost("Unvote")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Unvote(int showId, int designerId)
         {
@@ -238,8 +235,7 @@ namespace AdilBooks.Controllers
         /// Handles image upload for a participant after voting.
         /// </summary>
         [HttpPost("UploadImage")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         public async Task<IActionResult> UploadImage(int voteId, IFormFile imageFile)
         {
             var vote = await _context.Votes.FindAsync(voteId);
@@ -282,8 +278,7 @@ namespace AdilBooks.Controllers
         /// Deletes an uploaded image.
         /// </summary>
         [HttpPost("DeleteImage")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         public async Task<IActionResult> DeleteImage(int voteId)
         {
             var vote = await _context.Votes.FindAsync(voteId);
@@ -310,8 +305,7 @@ namespace AdilBooks.Controllers
         /// Update an uploaded image.
         /// </summary>
         [HttpPost("UpdateImage")]
-        [Authorize]
-        //[Authorize(Roles = "Participant")]
+        [Authorize(Roles = "Participant")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdateImage(int voteId, IFormFile newImageFile)
         {

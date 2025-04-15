@@ -20,3 +20,24 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.back-show {
+  margin-bottom: 10px;
+}
+
+.fashion-wrapper {
+  margin-bottom: 20px;
+}
+
+.delete-designer, .delete-participant, .save-cancel-show, .delete-form, .save-cancel-edit {
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.save-cancel {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+

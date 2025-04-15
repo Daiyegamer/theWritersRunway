@@ -28,6 +28,7 @@ namespace AdilBooks.Controllers
 
         // GET: Publishers/List
         [HttpGet("List")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> List()
         {
             IEnumerable<PublisherDto> publishers = await _publisherService.ListPublishers();
@@ -65,7 +66,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Publishers/Add
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public async Task<IActionResult> Add(PublisherDto publisherDto)
         {
@@ -116,7 +118,8 @@ namespace AdilBooks.Controllers
 
 
         // POST: Publishers/Update
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(PublisherDto publisherDto)
         {
@@ -151,8 +154,11 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Publishers/Delete/{id}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpPost("Delete/{id}")]
+        
         public async Task<IActionResult> Delete(int id)
         {
             ServiceResponse response = await _publisherService.DeletePublisher(id);
@@ -179,7 +185,8 @@ namespace AdilBooks.Controllers
             return View(shows);
         }
 
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("LinkShow")]
         public async Task<IActionResult> LinkShow(int publisherId, int showId)
         {
@@ -189,7 +196,8 @@ namespace AdilBooks.Controllers
             //return Ok(new { message = result ? "Show linked." : "Already linked." }); // ✅ For Swagger testing
         }
 
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("UnlinkShow")]
         public async Task<IActionResult> UnlinkShow(int publisherId, int showId)
         {

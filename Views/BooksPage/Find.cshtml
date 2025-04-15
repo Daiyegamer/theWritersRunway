@@ -5,12 +5,27 @@
 }
 
 <div class="container mt-4">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            ✅ @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ❌ @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
     <!-- Page Title -->
     <h1 class="text-center text-primary">📖 Book Details</h1>
     <hr class="mb-4">
 
     <!-- Actions (Only for Authenticated Users) -->
-    @if (User.Identity.IsAuthenticated)
+    @if (User.IsInRole("Admin"))
     {
         <div class="text-end mb-3">
             <a href="/Books/Edit/@Model.Book.BookId" class="btn btn-warning">
@@ -47,7 +62,7 @@
                         {
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <i class="fas fa-user"></i> @author.AuthorName
-                                @if (User.Identity.IsAuthenticated)
+                                @if (User.IsInRole("Admin"))
                                 {
                                     <form method="POST" action="/Books/UnlinkAuthorFromBook" style="display:inline">
                                         <input type="hidden" name="bookId" value="@Model.Book.BookId" />
@@ -62,7 +77,7 @@
                     </ul>
 
                     <!-- Add Author Form (Only for Authenticated Users) -->
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <form method="POST" action="/Books/LinkAuthorToBook" class="mt-3">
                             <input type="hidden" name="bookId" value="@Model.Book.BookId" />

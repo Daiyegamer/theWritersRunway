@@ -29,6 +29,7 @@ namespace AdilBooks.Controllers
 
         // GET: Books/List
         [HttpGet("List")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> List()
         {
             IEnumerable<BookListDto> books = await _bookService.ListBooks();
@@ -73,7 +74,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Add
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Add")]
         public async Task<IActionResult> Add(AddBookDto addBookDto)
         {
@@ -118,7 +120,8 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Update
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(UpdateBookDto updateBookDto)
         {
@@ -137,6 +140,7 @@ namespace AdilBooks.Controllers
         }
 
         // GET: Books/ConfirmDelete/{id}
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         [HttpGet("ConfirmDelete/{id}")]
         public async Task<IActionResult> ConfirmDelete(int id)
         {
@@ -149,8 +153,10 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/Delete/{id}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("Delete/{id}")]
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
         public async Task<IActionResult> Delete(int id)
         {
             ServiceResponse response = await _bookService.DeleteBook(id);
@@ -163,40 +169,48 @@ namespace AdilBooks.Controllers
         }
 
         // POST: Books/LinkAuthorToBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("LinkAuthorToBook")]
         public async Task<IActionResult> LinkAuthorToBook([FromForm] int bookId, [FromForm] int authorId)
-
         {
             var response = await _bookService.LinkAuthorToBook(bookId, authorId);
+
             if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                return NotFound(new { error = "NotFound", message = response.Messages });
+                TempData["ErrorMessage"] = "Book or Author not found.";
+                return RedirectToAction("Find", new { id = bookId });
             }
             else if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return StatusCode(500, new { error = "InternalServerError", message = response.Messages });
+                TempData["ErrorMessage"] = string.Join(", ", response.Messages);
+                return RedirectToAction("Find", new { id = bookId });
             }
 
+            TempData["SuccessMessage"] = "Author linked to book successfully.";
             return RedirectToAction("Find", new { id = bookId });
         }
 
         // POST: Books/UnlinkAuthorFromBook/{bookId}/{authorId}
-        [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "Admin")]
         [HttpPost("UnlinkAuthorFromBook")]
         public async Task<IActionResult> UnlinkAuthorFromBook([FromForm] int bookId, [FromForm] int authorId)
-
         {
             var response = await _bookService.UnlinkAuthorFromBook(bookId, authorId);
+
             if (response.Status == ServiceResponse.ServiceStatus.NotFound)
             {
-                return NotFound(new { error = "NotFound", message = response.Messages });
+                TempData["ErrorMessage"] = "Book or Author not found.";
+                return RedirectToAction("Find", new { id = bookId });
             }
             else if (response.Status == ServiceResponse.ServiceStatus.Error)
             {
-                return StatusCode(500, new { error = "InternalServerError", message = response.Messages });
+                TempData["ErrorMessage"] = string.Join(", ", response.Messages);
+                return RedirectToAction("Find", new { id = bookId });
             }
 
+            TempData["SuccessMessage"] = "Author unlinked from book successfully.";
             return RedirectToAction("Find", new { id = bookId });
         }
     }

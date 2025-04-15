@@ -18,14 +18,14 @@
     </div>
 
     <!-- Navigation Section -->
-    <div class="row text-center mt-4">
+    <div class="row text-center mt-4 fashion-wrapper">
         <div class="col-md-3">
             <div class="card shadow border-primary">
                 <div class="card-body">
                     <h5 class="card-title text-primary">🎨 Designers</h5>
                     <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-primary">Browse Designers</a>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <a asp-controller="Designers" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Designers</a>
                     }
@@ -38,7 +38,7 @@
                     <h5 class="card-title text-success">🧵 Participants</h5>
                     <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-success">Browse Participants</a>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <a asp-controller="Participants" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Participants</a>
                     }
@@ -51,9 +51,21 @@
                     <h5 class="card-title text-warning">📅 Shows</h5>
                     <a asp-controller="Shows" asp-action="Index" class="btn btn-outline-warning mb-2">Browse Shows</a>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <a asp-controller="Shows" asp-action="AdminIndex" class="btn btn-outline-dark mt-1">Manage Shows</a>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow border-warning">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">📅 My Shows</h5>
+
+                    @if (User.IsInRole("Participant"))
+                    {
+                        <a asp-controller="Shows" asp-action="MyShows" class="btn btn-outline-dark mt-1">Browse Registered Shows</a>
                     }
                 </div>
             </div>
@@ -64,7 +76,7 @@
                     <h5 class="card-title text-danger">🗳️ Voting</h5>
                     <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-danger">Vote Summary</a>
 
-                    @if (User.Identity.IsAuthenticated)
+                    @if (User.IsInRole("Admin"))
                     {
                         <a asp-controller="Votes" asp-action="Index" class="btn btn-outline-dark mt-1">Manage Votes</a>
                     }
@@ -80,9 +92,9 @@
         <div class="text-center mt-5">
             <h3>Join FashionVote Today!</h3>
             <p class="lead text-muted">Create an account to register shows and vote for designers.</p>
-            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-danger btn-lg">
-                <i class="fas fa-user-plus"></i> Sign Up Now
-            </a>
+                <a href="/Shows" class="btn btn-danger btn-lg">
+                    <i class="fas fa-user-plus"></i> Sign Up Now
+                </a>
         </div>
     }
 </div>

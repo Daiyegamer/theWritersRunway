@@ -28,6 +28,8 @@
         <input asp-for="EndTime" type="datetime-local" class="form-control" />
         <span asp-validation-for="EndTime" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary save-changes">Save Changes</button>
-     <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
+    <div class="save-cancel-edit">
+        <button type="submit" class="btn btn-primary save-changes">Save Changes</button>
+        <a asp-action="AdminIndex" class="btn btn-secondary">Cancel</a>
+    </div>
 </form>

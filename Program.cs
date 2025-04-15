@@ -19,19 +19,31 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 //builder.Services.AddDbContext<ApplicationDbContext>(options =>
-  //  options.UseSqlite(connectionString)); 
+//   options.UseSqlite(connectionString)); 
+
+// COMMENTED THIS OUT FOR NOW
+// builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Identity + Roles
+// Identity + Roles COMMENTED THIS OUT FOR NOW
+// builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+// {
+//     options.SignIn.RequireConfirmedAccount = false;
+// })
+// .AddEntityFrameworkStores<ApplicationDbContext>()
+// .AddDefaultUI()
+// .AddRoles<IdentityRole>();
+
+// ADDED THIS INSTEAD
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
 })
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders()
 .AddDefaultUI();
-
-//.AddRoles<IdentityRole>();
 
 // Core MVC + Razor + SignalR
 builder.Services.AddControllersWithViews();
@@ -42,6 +54,7 @@ builder.Services.AddSignalR();
 builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
+builder.Services.AddTransient<IFileService, FileService>();
 
 // FashionVote Services
 //builder.Services.AddSingleton<IEmailSender, EmailSender>();
@@ -86,34 +99,25 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    //dbContext.Database.Migrate();
 
-    //var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-    //var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    // UNCOMENTED THESE LINES BELOW
+    dbContext.Database.Migrate();
 
-    //string adminEmail = "admin@fashionvote.com";
-    //string adminPassword = "Admin@123";
-
-    //if (!await roleManager.RoleExistsAsync("Admin"))
-    //    await roleManager.CreateAsync(new IdentityRole("Admin"));
-
-    //if (!await roleManager.RoleExistsAsync("Participant"))
-    //    await roleManager.CreateAsync(new IdentityRole("Participant"));
-
-    //var adminUser = await userManager.FindByEmailAsync(adminEmail);
-    //if (adminUser == null)
-    //{
-    //    adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
-    //    var result = await userManager.CreateAsync(adminUser, adminPassword);
-    //    if (result.Succeeded)
-    //        await userManager.AddToRoleAsync(adminUser, "Admin");
-    //}
+    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roles = { "Admin", "Participant" };
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+            await roleManager.CreateAsync(new IdentityRole(role));
+    }
 }
 
 // Middleware Pipeline
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); // ✅ Show detailed dev errors
     app.UseMigrationsEndPoint();
+
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
@@ -128,7 +132,7 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // ✅ Required to serve images/css/js
 app.UseRouting();
 
 app.UseAuthentication();
@@ -137,6 +141,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 
+// Custom Routes
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -157,10 +162,7 @@ app.MapControllerRoute(
     defaults: new { controller = "PublishersPage" });
 
 // SignalR (for FashionVote)
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
-    endpoints.MapControllers(); // backup route mapping
-});
+app.MapHub<AdilBooks.Hubs.VoteHub>("/voteHub");
 
 app.Run();
+    
